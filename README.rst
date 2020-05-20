@@ -1,5 +1,5 @@
-sphinxcontrib-pylit
-###################
+sphinxcontrib-pylit (v0.0.1)
+############################
 
 |travis| |apveyor| |codecov| |version| |license| |quality|
 
@@ -39,5 +39,7 @@ Computer Science and demonstrating the software development workflow.
 .. |apveyor| image:: https://img.shields.io/appveyor/ci/rblack42/sphinxcontrib-pylit/master.svg?style=flat-square&label=AppVeyor%20CI
     :target: https://ci.appveyor.com/project/rblack42/sphinxcontrib-pylit
     :alt: Build Status Windows
+
+
 
 

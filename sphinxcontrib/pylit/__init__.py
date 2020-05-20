@@ -1,4 +1,3 @@
-version = '0.0.0'
-author = 'Roie R. Black'
-email = 'roie.black@gmail.com'
+# Copyright 2020 Roie R. Black
 
+version = "0.0.1"

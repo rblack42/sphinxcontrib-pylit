@@ -6,3 +6,4 @@ MK		:= mk
 -include $(MK)/python.mk
 -include $(MK)/sphinx.mk
 -include $(MK)/pypi.mk
+-include $(MK)/version.mk

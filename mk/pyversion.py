@@ -3,11 +3,11 @@ import re
 import sys
 import datetime
 
-version_re = re.compile("^__version__.*=.*\"(.*)\"$")
+version_re = re.compile("^version.*=.*\"(.*)\"$")
 AUTHOR  = os.getenv('REALNAME')
 YEAR = datetime.datetime.now().year
 
-VERSION = "sphinxcontrib/lpblocks/__version__.py"
+VERSION = "sphinxcontrib/pylit/__init__.py"
 
 def main():
     vstring = "0.0.0"
@@ -20,13 +20,14 @@ def main():
             if m:
                 vstring = m.group(1)
                 break
-            lc+=1
+            else:
+                lc+=1
         fin.close()
     else:
         lines = []
         lines.append("# Copyright %d %s\n\n" % (YEAR, AUTHOR))
-        lines.append("__version__ = %s\n" % vstring)
-        lc = 2
+        lines.append("version = %s\n" % vstring)
+        lc = 1
         vstring="0.0.0"
     major,minor,build = vstring.split('.')
     try:
@@ -49,7 +50,7 @@ def main():
     vstring = major + '.' + minor + "." + build
 
     fout = open(VERSION,'w')
-    lines[lc] = "__version__ = \"%s\"" % vstring
+    lines[lc] = "version = \"%s\"" % vstring
     for l in lines:
         fout.write(l)
     fout.write("\n");
