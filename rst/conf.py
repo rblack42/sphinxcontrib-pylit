@@ -19,7 +19,6 @@ release = '0.0.1'
 
 # -- General configuration ---------------------------------------------------
 
-master_doc = 'contents'
 extensions = [
         'sphinx.ext.todo',
         'sphinx_ext.wordcount',
