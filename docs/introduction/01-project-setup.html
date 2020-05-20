@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Bibliography" href="../zbibliography.html" />
+    <link rel="next" title="Configuring Testing" href="02-testing-setup.html" />
     <link rel="prev" title="sphinxcontrib-lpblocks" href="../index.html" /> 
 </head>
 
@@ -102,6 +102,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#pypi-setup">PyPi Setup</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="02-testing-setup.html">Configuring Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zbibliography.html">Bibliography</a></li>
 </ul>
 
@@ -169,7 +170,7 @@
             
   <div class="section" id="project-setup">
 <h1>Project Setup<a class="headerlink" href="#project-setup" title="Permalink to this headline">¶</a></h1>
-<p>Read time: 3.8 minutes (384 words)</p>
+<p>Read time: 5.1 minutes (506 words)</p>
 <div class="section" id="step-1-pick-a-project-name">
 <h2>Step 1: Pick a project name<a class="headerlink" href="#step-1-pick-a-project-name" title="Permalink to this headline">¶</a></h2>
 <p>This project provides a <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a> extension that supports a form of Knuth’s <em>Literate Programming</em>.
@@ -233,7 +234,7 @@ tools my Computer Science classes.</p>
 directory, do this:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git init
 
-The creates a hidded **.git** directory used by Git_ to manage your project.
+The creates a hidden **.git** directory used by Git_ to manage your project.
 </pre></div>
 </div>
 </div>
@@ -297,7 +298,7 @@ Computer Science and demonstrating the software development workflow.
 <div class="section" id="gitignore">
 <h4>.gitignore<a class="headerlink" href="#gitignore" title="Permalink to this headline">¶</a></h4>
 <p>The <strong>.gitignore</strong> file keeps files we do not want to track with <a class="reference external" href="https://git-scm.com/">Git</a> out of
-the set of files we will maintain on <a class="reference external" href="https://github.com/">Github</a>. The line sin this file identify
+the set of files we will maintain on <a class="reference external" href="https://github.com/">Github</a>. The lines in this file identify
 file patterns and directories to ignore.</p>
 <div class="literal-block-wrapper docutils container" id="id3">
 <div class="code-block-caption"><span class="caption-text">.gitignore</span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
@@ -323,10 +324,14 @@ file patterns and directories to ignore.</p>
 </div>
 <div class="section" id="pypi-setup">
 <h2><a class="reference external" href="https://pypi.org/">PyPi</a> Setup<a class="headerlink" href="#pypi-setup" title="Permalink to this headline">¶</a></h2>
-<p>This project will be released on <a class="reference external" href="https://pypi.org/">PyPi</a> which is where most Python public projects are found. In order to use the standard <strong>pip</strong> tool to install this project package, we need to add a <strong>setup.py</strong> file and tweak our <strong>.gitignore</strong> file.</p>
+<p>This project will be released on <a class="reference external" href="https://pypi.org/">PyPi</a> which is where most Python public
+projects are found. In order to use the standard <strong>pip</strong> tool to install this
+project package, we need to add a <strong>setup.py</strong> file and tweak our
+<strong>.gitignore</strong> file.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>These steps are detailed in <a class="reference external" href="https://python-packaging.readthedocs.io/en/latest/minimal.html">Minimal Structure</a>.</p>
+<p>These steps are detailed in <a class="reference external" href="https://python-packaging.readthedocs.io/en/latest/minimal.html">Minimal Structure</a>. You must also register on
+<a class="reference external" href="https://pypi.org/">PyPi</a> to use their system.</p>
 </div>
 <p>Here is a start on the <strong>setup.py</strong> file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -344,6 +349,50 @@ file patterns and directories to ignore.</p>
       <span class="n">zip_safe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>With this file in place, we can register the project on <a class="reference external" href="https://pypi.org/">PyPi</a> and make sure the
+project name is available. <a class="reference external" href="https://pypi.org/">PyPi</a> now uses a new tool, <strong>twine</strong> to manage
+uploading projects. Here are the commands use to set things up:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ pip install twine
+$ python setyp.py build sdist bdist_wheel
+$ twine upload -r testpypy dist/*
+</pre></div>
+</div>
+<p>This uploads the project tot he <strong>testpypi</strong> website. If things look good
+there, we can do an “official” upload as follows:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ twine upload dist/*
+</pre></div>
+</div>
+<p>Once you complete this step, your project is properly registered on the <a class="reference external" href="https://pypi.org/">PyPi</a>
+system and users can use <strong>pip</strong> to install the project code.</p>
+<p>Finally, we need to add a few more settings to the <strong>.gitignore</strong> file to keep
+directories used in  publishing the project on <a class="reference external" href="https://pypi.org/">PyPi</a> out of our repository:</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">.gitignore</span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mac</span>
+<span class="o">.</span><span class="n">DS_Store</span>
+
+<span class="c1"># Vim</span>
+<span class="o">*~</span>
+<span class="o">*.</span><span class="n">swp</span>
+
+<span class="c1"># Python</span>
+<span class="o">*.</span><span class="n">py</span><span class="p">[</span><span class="n">cod</span><span class="p">]</span>
+<span class="n">__pycache__</span>
+<span class="n">_venv</span>
+
+<span class="c1"># Sphinx</span>
+<span class="n">rst</span><span class="o">/</span><span class="n">_build</span>
+
+<span class="c1"># PyPi</span>
+<span class="c1"># Pypi</span>
+<span class="n">build</span>
+<span class="n">cover</span>
+<span class="n">dist</span>
+<span class="o">*.</span><span class="n">egg</span><span class="o">-</span><span class="n">info</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+<p>Now, we are ready for some testing work!</p>
 </div>
 </div>
 
@@ -355,7 +404,7 @@ file patterns and directories to ignore.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../zbibliography.html" class="btn btn-neutral float-right" title="Bibliography" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="02-testing-setup.html" class="btn btn-neutral float-right" title="Configuring Testing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../index.html" class="btn btn-neutral float-left" title="sphinxcontrib-lpblocks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

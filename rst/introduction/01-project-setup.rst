@@ -82,7 +82,7 @@ directory, do this:
 
     $ git init
 
-    The creates a hidded **.git** directory used by Git_ to manage your project.
+    The creates a hidden **.git** directory used by Git_ to manage your project.
 
 Standard Project Files
 ======================
@@ -103,7 +103,7 @@ least, it should provide some basic information about the project.
 ----------
 
 The **.gitignore** file keeps files we do not want to track with Git_ out of
-the set of files we will maintain on Github_. The line sin this file identify
+the set of files we will maintain on Github_. The lines in this file identify
 file patterns and directories to ignore.
 
 ..  literalinclude::   /_examples/gitignore-01
@@ -112,12 +112,44 @@ file patterns and directories to ignore.
 PyPi_ Setup
 ***********
 
-This project will be released on PyPi_ which is where most Python public projects are found. In order to use the standard **pip** tool to install this project package, we need to add a **setup.py** file and tweak our **.gitignore** file.
+This project will be released on PyPi_ which is where most Python public
+projects are found. In order to use the standard **pip** tool to install this
+project package, we need to add a **setup.py** file and tweak our
+**.gitignore** file.
 
 ..  note::
 
-    These steps are detailed in `Minimal Structure`_.
+    These steps are detailed in `Minimal Structure`_. You must also register on
+    PyPi_ to use their system.
 
 Here is a start on the **setup.py** file:
 
 ..  literalinclude::   /_examples/setup-01.py
+
+With this file in place, we can register the project on PyPi_ and make sure the
+project name is available. PyPi_ now uses a new tool, **twine** to manage
+uploading projects. Here are the commands use to set things up:
+
+..  code-block:: shell
+
+    $ pip install twine
+    $ python setyp.py build sdist bdist_wheel
+    $ twine upload -r testpypy dist/*
+
+This uploads the project tot he **testpypi** website. If things look good
+there, we can do an "official" upload as follows:
+
+..  code-block:: shell
+
+    $ twine upload dist/*
+
+Once you complete this step, your project is properly registered on the PyPi_
+system and users can use **pip** to install the project code.
+
+Finally, we need to add a few more settings to the **.gitignore** file to keep
+directories used in  publishing the project on PyPi_ out of our repository:
+
+..  literalinclude::    /_examples/gitignore-02
+    :caption: .gitignore
+
+Now, we are ready for some testing work!

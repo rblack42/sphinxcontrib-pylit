@@ -3,6 +3,8 @@
 ..	|AFIT|		replace:: Air Force Institute of Tecnology
 ..	_AFIT:		https://www.afit.edu/
 ..  _Antlr:     https://www.antlr.org/
+..  _Appveyor:  https://www.appveyor.com/
+..  _CodeClimate:    https://codeclimate.com/quality/
 ..	_LaTeX:		https://www.latex-project.org/
 ..	|LP|		replace:: *Literate Programming*
 ..	_LP:		https://en.wikipedia.org/wiki/Literate_programming

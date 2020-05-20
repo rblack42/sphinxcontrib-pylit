@@ -1,0 +1,21 @@
+# Mac
+.DS_Store
+
+# Vim
+*~
+*.swp
+
+# Python
+*.py[cod]
+__pycache__
+_venv
+
+# Sphinx
+rst/_build
+
+# PyPi
+# Pypi
+build
+cover
+dist
+*.egg-info/
