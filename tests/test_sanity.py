@@ -1,9 +1,9 @@
-from sphinxcontrib.pylit import incrementer
+from sphinxcontrib.pylit import utils
 
 
 def test_answer():
-    assert incrementer.inc(2) == 3
+    assert utils.inc(2) == 3
 
 
 def test_answer2():
-    assert incrementer.inc(5) == 6
+    assert utils.inc(5) == 6

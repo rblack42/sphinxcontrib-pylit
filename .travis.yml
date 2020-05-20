@@ -10,7 +10,7 @@ install:
     - 'python setup.py install'
 
 script:
-    - tox -v
+    - pytest tests
 
 after_success:
     - bash <(curl -s https://codecov.io/bash)
