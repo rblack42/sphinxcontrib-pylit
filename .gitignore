@@ -1,0 +1,25 @@
+# Mac
+.DS_Store
+
+# Vim
+*~
+*.swp
+
+# Python
+*.py[cod]
+__pycache__
+_venv
+
+# Testing
+.coverage
+.tox
+
+# Sphinx
+rst/_build
+
+# Pypi
+build
+cover
+dist
+*.egg-info/
+coverage.xml
