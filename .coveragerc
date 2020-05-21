@@ -1,7 +1,5 @@
 [run]
-source = sphinxcontrib/*
 omit =
-    _venv/*
     tests/*
 
 [report]

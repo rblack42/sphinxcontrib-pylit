@@ -11,4 +11,4 @@ install:
   - git config --global user.email "builds@appveyor.com"
   - git config --global user.name "AppVeyor"
 build_script: pip install -r requirements.txt
-test_script: pytest tests
+test_script: tox
