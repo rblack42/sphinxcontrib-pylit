@@ -10,13 +10,6 @@ This project provides a Sphinx_ extension that supports a form of Knuth's |LP|.
 Most Sphinx_ extensions are created in the **sphinxcontrib** namespace, so this
 project name will be **sphinxcontrib-pylit**.
 
-..	note::
-
-    There are several packages listed on PyPi_ with **pylit** in the name. I
-    first used this name in 2003 as part of my Computer Science Master's Thesis
-    project at Texas State Uniersity, and I registered the **pylit.org** name
-    in 2005 :cite:`black:2005`. If this causes confusion, I apologize to the others trying to
-    build similar systems.
 
 Step 2: Create Project Directories
 **********************************

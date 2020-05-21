@@ -10,12 +10,13 @@ to also support generation of Git_ code repositories from the documentation.
 This tool was written to support generation of lecture materials for Computer
 Science courses the author taught.
 
-..  note::
+..	note::
 
-    The name **pylit** is listed on pypi_ for another unrelated project.  The
-    author first used this name for aprogram written at Texas State University
-    for a Computer Science Master's thesis project in 2003. Sorry for any
-    confusion that may cause here.
+    There are several packages listed on PyPi_ with **pylit** in the name. I
+    first used this name in 2003 as part of my Computer Science Master's Thesis
+    project at Texas State Uniersity, and I registered the **pylit.org** name
+    in 2005 :cite:`black:2005`. If this causes confusion, I apologize to the others trying to
+    build similar systems.
 
 Prerequisites
 -------------

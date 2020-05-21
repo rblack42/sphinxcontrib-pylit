@@ -15,7 +15,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Configuring Testing" href="testing-setup.html" />
-    <link rel="prev" title="sphinxcontrib.pylit – Support for Literate Programming" href="../usage/extensions/pylit.html" />
+    <link rel="prev" title="sphinxcontrib.pylit" href="../extdev/pylitdomain.html" />
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700'
           rel='stylesheet' type='text/css' />
  
@@ -81,7 +81,7 @@
           <a href="testing-setup.html" title="Configuring Testing"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="../usage/extensions/pylit.html" title="sphinxcontrib.pylit – Support for Literate Programming"
+          <a href="../extdev/pylitdomain.html" title="sphinxcontrib.pylit"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">PyLiT home</a>&#160;|</li>
         <li><a href="../contents.html">Documentation</a> &#187;</li>
@@ -116,8 +116,8 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="../usage/extensions/pylit.html"
-                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sphinxcontrib.pylit</span></code> – Support for Literate Programming</a></p>
+  <p class="topless"><a href="../extdev/pylitdomain.html"
+                        title="previous chapter">sphinxcontrib.pylit</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="testing-setup.html"
                         title="next chapter">Configuring Testing</a></p>
@@ -148,20 +148,12 @@
             
   <div class="section" id="project-setup">
 <h1>Project Setup<a class="headerlink" href="#project-setup" title="Permalink to this headline">¶</a></h1>
-<p>Read time: 5.1 minutes (506 words)</p>
+<p>Read time: 4.5 minutes (455 words)</p>
 <div class="section" id="step-1-pick-a-project-name">
 <h2>Step 1: Pick a project name<a class="headerlink" href="#step-1-pick-a-project-name" title="Permalink to this headline">¶</a></h2>
 <p>This project provides a <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a> extension that supports a form of Knuth’s <em>Literate Programming</em>.
 Most <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a> extensions are created in the <strong>sphinxcontrib</strong> namespace, so this
 project name will be <strong>sphinxcontrib-pylit</strong>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>There are several packages listed on <a class="reference external" href="https://pypi.org/">PyPi</a> with <strong>pylit</strong> in the name. I
-first used this name in 2003 as part of my Computer Science Master’s Thesis
-project at Texas State Uniersity, and I registered the <strong>pylit.org</strong> name
-in 2005 <a class="bibtex reference internal" href="../zbibliography.html#black-2005" id="id1">[Bla05]</a>. If this causes confusion, I apologize to the others trying to
-build similar systems.</p>
-</div>
 </div>
 <div class="section" id="step-2-create-project-directories">
 <h2>Step 2: Create Project Directories<a class="headerlink" href="#step-2-create-project-directories" title="Permalink to this headline">¶</a></h2>
@@ -224,8 +216,8 @@ Here are the files I always set up:</p>
 <h4>README.rst<a class="headerlink" href="#readme-rst" title="Permalink to this headline">¶</a></h4>
 <p>This file will appear on <a class="reference external" href="https://github.com/">Github</a> when visitors browse your project. At the very
 least, it should provide some basic information about the project.</p>
-<div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">README.rst</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">README.rst</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphinxcontrib</span><span class="o">-</span><span class="n">pylit</span>
 <span class="c1">###################</span>
 
@@ -253,8 +245,8 @@ least, it should provide some basic information about the project.</p>
 <p>The <strong>.gitignore</strong> file keeps files we do not want to track with <a class="reference external" href="https://git-scm.com/">Git</a> out of
 the set of files we will maintain on <a class="reference external" href="https://github.com/">Github</a>. The lines in this file identify
 file patterns and directories to ignore.</p>
-<div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-text">.gitignore</span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">.gitignore</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mac</span>
 <span class="o">.</span><span class="n">DS_Store</span>
 
@@ -319,8 +311,8 @@ there, we can do an “official” upload as follows:</p>
 system and users can use <strong>pip</strong> to install the project code.</p>
 <p>Finally, we need to add a few more settings to the <strong>.gitignore</strong> file to keep
 directories used in  publishing the project on <a class="reference external" href="https://pypi.org/">PyPi</a> out of our repository:</p>
-<div class="literal-block-wrapper docutils container" id="id4">
-<div class="code-block-caption"><span class="caption-text">.gitignore</span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">.gitignore</span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mac</span>
 <span class="o">.</span><span class="n">DS_Store</span>
 
@@ -368,7 +360,7 @@ directories used in  publishing the project on <a class="reference external" hre
           <a href="testing-setup.html" title="Configuring Testing"
              >next</a> |</li>
         <li class="right" >
-          <a href="../usage/extensions/pylit.html" title="sphinxcontrib.pylit – Support for Literate Programming"
+          <a href="../extdev/pylitdomain.html" title="sphinxcontrib.pylit"
              >previous</a> |</li>
         <li><a href="../index.html">PyLiT home</a>&#160;|</li>
         <li><a href="../contents.html">Documentation</a> &#187;</li>
