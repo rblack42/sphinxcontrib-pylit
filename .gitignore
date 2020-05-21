@@ -14,8 +14,12 @@ _venv
 rst/_build
 
 # PyPi
-# Pypi
 build
 cover
 dist
 *.egg-info/
+
+# Testing
+.coverage
+.pytest_cache
+.tox

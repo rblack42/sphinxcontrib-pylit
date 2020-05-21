@@ -16,4 +16,5 @@ pyreqs: requirements.txt 	## Load Python requirements
 
 .PHONY: test
 test: ## Run unit tests
+	pip install . && \
 	pytest tests
