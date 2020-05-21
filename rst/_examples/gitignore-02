@@ -13,7 +13,6 @@ _venv
 # Sphinx
 rst/_build
 
-# PyPi
 # Pypi
 build
 cover

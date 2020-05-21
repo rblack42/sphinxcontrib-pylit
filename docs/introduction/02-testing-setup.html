@@ -90,6 +90,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">Travis-CI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id3">Appveyor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-badges">Adding Badges</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../zbibliography.html">Bibliography</a></li>
@@ -159,7 +160,7 @@
             
   <div class="section" id="configuring-testing">
 <h1>Configuring Testing<a class="headerlink" href="#configuring-testing" title="Permalink to this headline">¶</a></h1>
-<p>Read time: 5.2 minutes (520 words)</p>
+<p>Read time: 5.8 minutes (576 words)</p>
 <p>Testing is one of the most important things you can do in developing software.
 For a serious project, there are a number of excellent tools available to make
 sure you produce high-quality code.</p>
@@ -187,23 +188,27 @@ system as well. More on that later.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ pip install pytest
 </pre></div>
 </div>
-<p>Once we have this tool installed, we can set up a very simple test to verify that everything is working.</p>
-<p>All tests are contained in Python modules with names beginning with <strong>test_</strong>. We will place these test files in the <strong>tests</strong> directory. Here is a “sanity** check:</p>
+<p>Once we have this tool installed, we can set up a very simple test to verify
+that everything is working.</p>
+<p>All tests are contained in Python modules with names beginning with <strong>test_</strong>.
+We will place these test files in the <strong>tests</strong> directory. Here is a “sanity**
+check:</p>
 <div class="literal-block-wrapper docutils container" id="id4">
 <div class="code-block-caption"><span class="caption-text">tests/test_sanity.py</span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sphinxcontrib.pylit</span> <span class="kn">import</span> <span class="n">incrementer</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sphinxcontrib.pylit</span> <span class="kn">import</span> <span class="n">utils</span>
 
 
 <span class="k">def</span> <span class="nf">test_answer</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="n">incrementer</span><span class="o">.</span><span class="n">inc</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
+    <span class="k">assert</span> <span class="n">utils</span><span class="o">.</span><span class="n">inc</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
 
 
 <span class="k">def</span> <span class="nf">test_answer2</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="n">incrementer</span><span class="o">.</span><span class="n">inc</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span>
+    <span class="k">assert</span> <span class="n">utils</span><span class="o">.</span><span class="n">inc</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span>
 </pre></div>
 </div>
 </div>
-<p>In order for this test to pass, we need a simple <strong>iunc</strong> function. We will place this function in our primary project package in the 88utils.py88 file:</p>
+<p>In order for this test to pass, we need a simple <strong>iunc</strong> function. We will
+place this function in our primary project package in the <strong>utils.py</strong> file:</p>
 <div class="literal-block-wrapper docutils container" id="id5">
 <div class="code-block-caption"><span class="caption-text">sphinxcontrib/pylit/utils.py</span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">inc</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -215,7 +220,7 @@ system as well. More on that later.</p>
 </div>
 <div class="section" id="id2">
 <h2>Travis-CI<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>Travis-CI- has been supporting open-source projects for a long time. If you
+<p><a class="reference external" href="https://travis-ci.org/">Travis-CI</a> has been supporting open-source projects for a long time. If you
 host your code on <a class="reference external" href="https://github.com/">Github</a> they will check out a fresh version of your code
 every time you “push” changes to <a class="reference external" href="https://github.com/">Github</a>, then set up a fresh virtual machine
 that you can configure, and run tests. If all the tests pass, you will be
@@ -246,7 +251,7 @@ named <strong>.travis.yml</strong> and ours looks like this:</p>
     <span class="o">-</span> <span class="s1">&#39;python setup.py install&#39;</span>
 
 <span class="n">script</span><span class="p">:</span>
-    <span class="o">-</span> <span class="n">tox</span> <span class="o">-</span><span class="n">v</span>
+    <span class="o">-</span> <span class="n">pytest</span> <span class="n">tests</span>
 
 <span class="n">after_success</span><span class="p">:</span>
     <span class="o">-</span> <span class="n">bash</span> <span class="o">&lt;</span><span class="p">(</span><span class="n">curl</span> <span class="o">-</span><span class="n">s</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">codecov</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">bash</span><span class="p">)</span>
@@ -289,6 +294,65 @@ name in the <em>Dashboard</em>.</p>
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="adding-badges">
+<h2>Adding Badges<a class="headerlink" href="#adding-badges" title="Permalink to this headline">¶</a></h2>
+<p>Once you have all of these testing tools set up, you need to modify your README.rst file so the badges show up. Here is the new version I use:</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">README.rst</span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sphinxcontrib-pylit (v0.0.1)
+############################
+
+|travis| |apveyor| |codecov| |version| |license| |quality|
+
+Sphinx extensions for Literate Programming.
+
+This extension supports a version of Dr. Donald Knuth&#39;s Literate Programming
+within reStructuredText documents. Code detailed within blocks supported by
+this extension can be extracted for processing, and saved in a
+user-configurable location. The extension also supports running commands
+against the extracted code. This extension was developed to support teaching
+Computer Science and demonstrating the software development workflow.
+
+* Download: https://pypi.python.org/pypi/sphinxcontrib-pylit/#downloads
+
+* Documentation: http://rblack42.github.io/sphinxcontrib-pylit
+
+* Development: https://github.com/rblack42/sphinxcontrib-pylit/
+
+..  |travis| image:: https://travis-ci.org/rblack42/sphinxcontrib-pylit.png?branch=master
+    :target: https://travis-ci.org/rblack42/sphinxcontrib-pylit
+    :alt: travis-ci
+
+..  |codecov| image:: https://codecov.io/gh/rblack42/sphinxcontrib-pylit/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/rblack42/sphinxcontrib-pylit
+    :alt: codecov.io badge
+
+..  |version| image:: https://badge.fury.io/py/sphinxcontrib-pylit.svg
+    :target: https://badge.fury.io/py/sphinxcontrib-lpblocks
+    :alt: Latest PyPI version
+
+..  |license| image:: https://img.shields.io/pypi/l/sphinxcontrib-pylit.svg
+    :target: https://pypi.python.org/pypi/sphinxcontrib-pylit/
+
+.. |quality| image:: https://codeclimate.com/github/rblack42/sphinxcontrib-pylit/badges/gpa.svg
+   :target: https://codeclimate.com/github/rblack42/sphinxcontrib-pylit
+
+.. |apveyor| image:: https://img.shields.io/appveyor/ci/rblack42/sphinxcontrib-pylit/master.svg?style=flat-square&amp;label=AppVeyor%20CI
+    :target: https://ci.appveyor.com/project/rblack42/sphinxcontrib-pylit
+    :alt: Build Status Windows
+
+
+
+
+</pre></div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>All of these new image links refer to my accounts on the various services. you should use your own!</p>
+</div>
+<p>Perhaps we are now ready to start serious development work. Well, maybe!</p>
 </div>
 </div>
 

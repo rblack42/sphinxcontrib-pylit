@@ -4,15 +4,11 @@ environment:
   PYTHON: Python37
   matrix:
     - TOX_ENV: py37
-    - TOX_ENV: py36
-    - TOX_ENV: py35
-    - TOX_ENV: py27
 
 # Run.
 install:
   - python -m pip install -U pip tox
   - git config --global user.email "builds@appveyor.com"
   - git config --global user.name "AppVeyor"
-build_script: pip install tox
-test_script: tox -e %TOX_ENV%
-on_success: IF %TOX_ENV% NEQ lint pip install codecov & codecov
+build_script: pip install -r requirements.txt
+test_script: pytest tests

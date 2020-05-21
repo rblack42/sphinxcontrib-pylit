@@ -38,14 +38,18 @@ This step is easy:
 
     $ pip install pytest
 
-Once we have this tool installed, we can set up a very simple test to verify that everything is working.
+Once we have this tool installed, we can set up a very simple test to verify
+that everything is working.
 
-All tests are contained in Python modules with names beginning with **test_**. We will place these test files in the **tests** directory. Here is a "sanity** check:
+All tests are contained in Python modules with names beginning with **test_**.
+We will place these test files in the **tests** directory. Here is a "sanity**
+check:
 
 ..  literalinclude::    ../../tests/test_sanity.py
     :caption: tests/test_sanity.py
 
-In order for this test to pass, we need a simple **iunc** function. We will place this function in our primary project package in the 88utils.py88 file:
+In order for this test to pass, we need a simple **iunc** function. We will
+place this function in our primary project package in the **utils.py** file:
 
 ..  literalinclude::    /_examples/utils-01.py
     :caption: sphinxcontrib/pylit/utils.py
@@ -53,7 +57,7 @@ In order for this test to pass, we need a simple **iunc** function. We will plac
 Travis-CI
 *********
 
-Travis-CI- has been supporting open-source projects for a long time. If you
+Travis-CI_ has been supporting open-source projects for a long time. If you
 host your code on Github_ they will check out a fresh version of your code
 every time you "push" changes to Github_, then set up a fresh virtual machine
 that you can configure, and run tests. If all the tests pass, you will be
@@ -93,4 +97,18 @@ The setup file we need for this system is pretty simple;
 
 ..  literalinclude::    /_examples/appveyor.yml
     :caption: appveyor.yml
+
+Adding Badges
+*************
+
+Once you have all of these testing tools set up, you need to modify your README.rst file so the badges show up. Here is the new version I use:
+
+..  literalinclude::    /_examples/README-02.rst
+    :caption: README.rst
+
+..  warning::
+
+    All of these new image links refer to my accounts on the various services. you should use your own!
+
+Perhaps we are now ready to start serious development work. Well, maybe!
 
