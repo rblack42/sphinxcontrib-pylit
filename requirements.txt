@@ -4,3 +4,4 @@ sphinxcontrib-bibtex
 pytest
 pytest-cov
 tox
+click:wq

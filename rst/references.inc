@@ -1,3 +1,7 @@
+..  |author|    replace:: Roie R. Black
+..  |author-email|   replace:: roie.black@gmail.com
+..  |pylit|     replace:: PyLiT
+
 ..	|ACC|		replace:: Austin Community College
 ..	_ACC:		https://www.austincc.edu/rblack
 ..	|AFIT|		replace:: Air Force Institute of Tecnology

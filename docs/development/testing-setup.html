@@ -1,180 +1,165 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Configuring Testing &mdash; sphinxcontrib-pylit 0.0.1 documentation</title>
-  
 
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Configuring Testing &#8212; sphinxcontrib-pylit 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinx13.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Bibliography" href="../zbibliography.html" />
-    <link rel="prev" title="Project Setup" href="01-project-setup.html" /> 
-</head>
+    <link rel="next" title="Changes in Sphinx" href="../changes.html" />
+    <link rel="prev" title="Project Setup" href="project-setup.html" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700'
+          rel='stylesheet' type='text/css' />
+ 
+    <style type="text/css">
+      table.right { float: right; margin-left: 20px; }
+      table.right td { border: 1px solid #ccc; }
+      
+    </style>
+    <script>
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
 
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
-
-          
-            <a href="../index.html" class="icon icon-home"> sphinxcontrib-pylit
-          
-
-          
-          </a>
-
-          
-            
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+  </head><body>
+<div class="pageheader">
+  <ul>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../usage/installation.html">Get it</a></li>
+    <li><a href="../contents.html">Docs</a></li>
+    <li><a href="../develop.html">Extend/Develop</a></li>
+  </ul>
+  <div>
+    <a href="../index.html">
+      <img src="../_static/logo.png" alt="PyLiT" />
+    </a>
+  </div>
 </div>
 
-          
-        </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../changes.html" title="Changes in Sphinx"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="project-setup.html" title="Project Setup"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">PyLiT home</a>&#160;|</li>
+        <li><a href="../contents.html">Documentation</a> &#187;</li>
 
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="01-project-setup.html">Project Setup</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuring Testing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">PyTest</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#installing-pytest">Installing PyTest</a></li>
+        <li class="nav-item nav-item-this"><a href="">Configuring Testing</a></li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Configuring Testing</a><ul>
+<li><a class="reference internal" href="#id1">PyTest</a><ul>
+<li><a class="reference internal" href="#installing-pytest">Installing PyTest</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">Travis-CI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">Appveyor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#adding-badges">Adding Badges</a></li>
+<li><a class="reference internal" href="#pytest-coverage-checks">PyTest Coverage Checks</a><ul>
+<li><a class="reference internal" href="#installing-pytest-cov">Installing pytest-cov</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../zbibliography.html">Bibliography</a></li>
+<li><a class="reference internal" href="#id2">Travis-CI</a></li>
+<li><a class="reference internal" href="#id3">Appveyor</a></li>
+<li><a class="reference internal" href="#adding-badges">Adding Badges</a></li>
+</ul>
+</li>
 </ul>
 
-            
-          
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="project-setup.html"
+                        title="previous chapter">Project Setup</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../changes.html"
+                        title="next chapter">Changes in Sphinx</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/development/testing-setup.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
-    </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">sphinxcontrib-pylit</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-      <li>Configuring Testing</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="../_sources/introduction/02-testing-setup.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
             
   <div class="section" id="configuring-testing">
 <h1>Configuring Testing<a class="headerlink" href="#configuring-testing" title="Permalink to this headline">¶</a></h1>
-<p>Read time: 5.8 minutes (576 words)</p>
+<p>Read time: 7.0 minutes (704 words)</p>
 <p>Testing is one of the most important things you can do in developing software.
 For a serious project, there are a number of excellent tools available to make
 sure you produce high-quality code.</p>
-<p>In this project we will do a few things you might not have tried before:</p>
+<p>In this project we will use a few popular development tools you might not have
+tried before:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Test with <a class="reference external" href="https://docs.pytest.org/en/latest/">pytest</a>.</p></li>
-<li><p>Test on Linux and Mac using <a class="reference external" href="https://travis-ci.org/">Travis-CI</a></p></li>
-<li><p>Test on Windows using <a class="reference external" href="https://www.appveyor.com/">Appveyor</a></p></li>
+<li><p>Unit testing with <a class="reference external" href="https://docs.pytest.org/en/latest/">pytest</a>.</p></li>
+<li><p>Check test coverage with <a class="reference external" href="https://github.com/pytest-dev/pytest-cov/">pytest-cov</a></p></li>
+<li><p>Run tests on Linux and Mac using <a class="reference external" href="https://travis-ci.org/">Travis-CI</a></p></li>
+<li><p>Run tests on Windows using <a class="reference external" href="https://www.appveyor.com/">Appveyor</a></p></li>
 <li><p>Check code quality with <a class="reference external" href="https://codeclimate.com/quality/">codeclimate</a></p></li>
+<li><p>Test automation with <a class="reference external" href="https://github.com/tox-dev/tox">Tox</a></p></li>
 </ul>
 </div></blockquote>
 <p>All of these systems provide free support for open-source projects. However the
-setup to get all of this working is a bit overwehelming for beginners. We will
+setup to get all of this working is a bit overwhelming for beginners. We will
 work through the steps in detail here.</p>
 <div class="section" id="id1">
 <h2><a class="reference external" href="https://docs.pytest.org/en/latest/">PyTest</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
@@ -216,6 +201,18 @@ place this function in our primary project package in the <strong>utils.py</stro
 </pre></div>
 </div>
 </div>
+</div>
+</div>
+<div class="section" id="pytest-coverage-checks">
+<h2>PyTest Coverage Checks<a class="headerlink" href="#pytest-coverage-checks" title="Permalink to this headline">¶</a></h2>
+<p>The goal in testing is to make sure all of your code runs as designed. The unit tests we write are designed to exercise the code and verify that each unit of code works properly. Coverage checks watch the tests run and measure the number of lines of code that are actually subjected to some test. The obvious goal should be 100%, but this number is sometimes hard to reach. For <a class="reference external" href="https://docs.pytest.org/en/latest/">PyTest</a>, there is a simple plugin available to add coverage checking to yout testing tool kit: <a class="reference external" href="https://github.com/pytest-dev/pytest-cov/">pytest-cov</a>.</p>
+<div class="section" id="installing-pytest-cov">
+<h3>Installing <a class="reference external" href="https://github.com/pytest-dev/pytest-cov/">pytest-cov</a><a class="headerlink" href="#installing-pytest-cov" title="Permalink to this headline">¶</a></h3>
+<p>We add this project to our <strong>requirements.txt</strong> file, or run this command;</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ pip install pytest-cov
+</pre></div>
+</div>
+<p>Tou use this plugin, wwe change the test command by adding a few new options:</p>
 </div>
 </div>
 <div class="section" id="id2">
@@ -357,52 +354,36 @@ Computer Science and demonstrating the software development workflow.
 </div>
 
 
-           </div>
-           
+            <div class="clearer"></div>
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../zbibliography.html" class="btn btn-neutral float-right" title="Bibliography" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="01-project-setup.html" class="btn btn-neutral float-left" title="Project Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2020, Roie R. Black
-
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
         </div>
       </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../changes.html" title="Changes in Sphinx"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="project-setup.html" title="Project Setup"
+             >previous</a> |</li>
+        <li><a href="../index.html">PyLiT home</a>&#160;|</li>
+        <li><a href="../contents.html">Documentation</a> &#187;</li>
 
-    </section>
-
-  </div>
-  
-
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+        <li class="nav-item nav-item-this"><a href="">Configuring Testing</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Roie R. Black.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.0.3.
+    </div>
+  </body>
 </html>

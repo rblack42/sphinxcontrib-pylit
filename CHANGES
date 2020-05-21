@@ -1,0 +1,14 @@
+* 2020-05-21: updated tox config\n
+* 2020-05-21: moved apveyor to tox\n
+* 2020-05-21: changes travis testing to tox\n
+* 2020-05-21: added tox testing\n
+* 2020-05-21: testing code coverage\n
+* 2020-05-20: added pytest to requirements for testing\n
+* 2020-05-20: testing testing services\n
+* 2020-05-20: working on appveyor\n
+* 2020-05-20: removed tox testing for now\n
+* 2020-05-20: adding testing setup\n
+* 2020-05-20: SPhinx 4 is using content.rst, not index.rst - fixed for now\n
+* 2020-05-20: fixed build number in readme and version string\n
+* 2020-05-20: Project live on pypi\n
+* 2020-05-20: initial setup\n

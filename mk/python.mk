@@ -16,5 +16,8 @@ pyreqs: requirements.txt 	## Load Python requirements
 
 .PHONY: test
 test: ## Run unit tests
-	pip install . && \
-	pytest tests
+	tox -v
+
+.PHONY: changes
+changes:	## create CHANGES file from git logs
+	git log --oneline --pretty=format:"* %ad: %s\n" --date=short > CHANGES
