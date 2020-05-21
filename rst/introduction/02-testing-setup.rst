@@ -7,18 +7,23 @@ Testing is one of the most important things you can do in developing software.
 For a serious project, there are a number of excellent tools available to make
 sure you produce high-quality code.
 
-In this project we will do a few things you might not have tried before:
+In this project we will use a few popular development tools you might not have
+tried before:
 
-    * Test with pytest_.
+    * Unit testing with pytest_.
 
-    * Test on Linux and Mac using Travis-CI_
+    * Check test coverage with pytest-cov_
 
-    * Test on Windows using Appveyor_
+    * Run tests on Linux and Mac using Travis-CI_
+
+    * Run tests on Windows using Appveyor_
 
     * Check code quality with codeclimate_
 
+    * Test automation with Tox_
+
 All of these systems provide free support for open-source projects. However the
-setup to get all of this working is a bit overwehelming for beginners. We will
+setup to get all of this working is a bit overwhelming for beginners. We will
 work through the steps in detail here.
 
 PyTest_
@@ -53,6 +58,23 @@ place this function in our primary project package in the **utils.py** file:
 
 ..  literalinclude::    /_examples/utils-01.py
     :caption: sphinxcontrib/pylit/utils.py
+
+PyTest Coverage Checks
+**********************
+
+The goal in testing is to make sure all of your code runs as designed. The unit tests we write are designed to exercise the code and verify that each unit of code works properly. Coverage checks watch the tests run and measure the number of lines of code that are actually subjected to some test. The obvious goal should be 100%, but this number is sometimes hard to reach. For PyTest_, there is a simple plugin available to add coverage checking to yout testing tool kit: pytest-cov_.
+
+Installing pytest-cov_
+======================
+
+We add this project to our **requirements.txt** file, or run this command;
+
+..  code-block:: shell
+
+    $ pip install pytest-cov
+
+Tou use this plugin, wwe change the test command by adding a few new options:
+
 
 Travis-CI
 *********

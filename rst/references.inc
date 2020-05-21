@@ -11,6 +11,7 @@
 ..  _Make:      https://www.gnu.org/software/make/
 ..  _PyPi:      https://pypi.org/
 ..  _pytest:    https://docs.pytest.org/en/latest/
+..  _pytest-cov:    https://github.com/pytest-dev/pytest-cov/
 ..	|RST|		replace:: reStructuredText
 ..	_RST:		https://www.sphinx-doc.org/en/master/usage/restructuredtext/
 ..	_Sphinx:	http://sphinx-doc.org/
@@ -18,5 +19,5 @@
 ..	_Git:		https://git-scm.com/
 ..	_GitHub:	https://github.com/
 ..  _Travis-CI: https://travis-ci.org/
-
+..  _Tox:       https://github.com/tox-dev/tox
 ..  _Minimal Structure: https://python-packaging.readthedocs.io/en/latest/minimal.html
