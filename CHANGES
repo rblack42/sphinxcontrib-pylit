@@ -1,3 +1,4 @@
+* 2020-05-21: added flake8 testing\n
 * 2020-05-21: updated tox config\n
 * 2020-05-21: moved apveyor to tox\n
 * 2020-05-21: changes travis testing to tox\n
