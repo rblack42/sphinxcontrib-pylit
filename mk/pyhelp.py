@@ -1,14 +1,17 @@
 import sys
 import re
 
+
+help_re = re.compile(r"^([a-zA-Zi_-]*:).*?##(.*)$")
+
 def main():
-    help_re = re.compile(r"^([a-zA-Zi_-]*:).*?##(.*)$")
 
     modules = sys.argv
     del modules[0]
     for m in modules:
-        fin = open(m,'r')
-        lines = fin.readlines()
+        lines = []
+        with open(m) as fin:
+            lines = fin.readlines()
         for l in lines:
             m = help_re.match(l)
             if m:
@@ -16,4 +19,6 @@ def main():
                 defn = m.group(2).strip()
                 print("%-20s %s" %(item,defn))
 
-main()
+
+if __name__ == '__main__':
+    main()

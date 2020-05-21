@@ -7,4 +7,4 @@ pypi = 'http://pypi.python.org/pypi/sphinxcontrib-lpblocks'
 author = 'Roie R. Black'
 email = 'roie.black@gmail.com'
 license = 'BSD 3-Clause'
-version = "0.0.7"
+version = "0.0.1"
