@@ -1,5 +1,3 @@
-..  include::   /references.inc
-
 ..  installation:
 
 =================

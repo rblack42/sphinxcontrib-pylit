@@ -1,4 +1,4 @@
-..  include::   /references.inc
+..  _pylit-quickstart:
 
 pylit-quickstart
 ================

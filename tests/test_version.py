@@ -1,9 +1,10 @@
-from sphinxcontrib.pylit import version
+from sphinxcontrib.pylit.meta import version
 
+VERSION = 'sphinxcontrib/pylit/meta.py'
 
 def test_version():
     vstr = ""
-    with open("sphinxcontrib/pylit/__init__.py") as f:
+    with open(VERSION) as f:
         lines = f.readlines()
         for l in lines:
             if "version" in l:

@@ -1,7 +1,6 @@
 Configuring Testing
 ###################
 
-..  include::   /header.inc
 
 Testing is one of the most important things you can do in developing software.
 For a serious project, there are a number of excellent tools available to make

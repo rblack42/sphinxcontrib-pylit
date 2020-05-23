@@ -7,7 +7,7 @@ version_re = re.compile("^version.*=.*\"(.*)\"$")
 AUTHOR  = os.getenv('REALNAME')
 YEAR = datetime.datetime.now().year
 
-VERSION = "sphinxcontrib/pylit/__init__.py"
+VERSION = "sphinxcontrib/pylit/meta.py"
 
 class Versioning(object):
 

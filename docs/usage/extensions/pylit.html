@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>sphinxcontrib.pylit – Support for Literate Programming &#8212; sphinxcontrib-pylit 0.0.1 documentation</title>
+    <title>&lt;no title&gt; &#8212; sphinxcontrib-pylit 0.0.1 documentation</title>
     <link rel="stylesheet" href="../../_static/sphinx13.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -14,7 +14,7 @@
     <script src="../../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Project Setup" href="../../development/project-setup.html" />
+    <link rel="next" title="Developing the PyLiT extension" href="../../extdev/index.html" />
     <link rel="prev" title="pylit-quickstart" href="../quickstart.html" />
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700'
           rel='stylesheet' type='text/css' />
@@ -78,7 +78,7 @@
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="../../development/project-setup.html" title="Project Setup"
+          <a href="../../extdev/index.html" title="Developing the PyLiT extension"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="../quickstart.html" title="pylit-quickstart"
@@ -86,7 +86,7 @@
         <li><a href="../../index.html">PyLiT home</a>&#160;|</li>
         <li><a href="../../contents.html">Documentation</a> &#187;</li>
 
-        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">sphinxcontrib.pylit</span></code> – Support for Literate Programming</a></li> 
+        <li class="nav-item nav-item-this"><a href="">&lt;no title&gt;</a></li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -95,8 +95,8 @@
   <p class="topless"><a href="../quickstart.html"
                         title="previous chapter">pylit-quickstart</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="../../development/project-setup.html"
-                        title="next chapter">Project Setup</a></p>
+  <p class="topless"><a href="../../extdev/index.html"
+                        title="next chapter">Developing the PyLiT extension</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -122,29 +122,33 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="sphinxcontrib-pylit-support-for-literate-programming">
-<h1><a class="reference internal" href="#module-sphinxcontrib.pylit" title="sphinxcontrib.pylit: Allow an extended form of |LP| in documents."><code class="xref py py-mod docutils literal notranslate"><span class="pre">sphinxcontrib.pylit</span></code></a> – Support for Literate Programming<a class="headerlink" href="#sphinxcontrib-pylit-support-for-literate-programming" title="Permalink to this headline">¶</a></h1>
+  <p><a class="reference internal" href="#module-sphinxcontrib.pylit" title="sphinxcontrib.pylit: Allow an extended form of |LP| in documents."><code class="xref py py-mod docutils literal notranslate"><span class="pre">sphinxcontrib.pylit</span></code></a> – Support for Literate Programming</p>
+<p>Read time: 1.0 minutes (97 words)</p>
+<hr class="docutils" />
 <span class="target" id="module-sphinxcontrib.pylit"></span><p>This extension creates a Sphinx domain with these new directives:</p>
 <dl class="rst directive">
 <dt id="directive-pylit.code">
 <code class="sig-name descname">.. pylit.code::</code><a class="headerlink" href="#directive-pylit.code" title="Permalink to this definition">¶</a></dt>
-<dd><p>This directive marks the starting block of a list of code blocks. This list can be extended using the <code class="xref rst rst-dir docutils literal notranslate"><span class="pre">pylit.add</span></code> directive (see below).</p>
+<dd><p>This directive marks the starting block of a list of code blocks. This list
+can be extended using the <code class="xref rst rst-dir docutils literal notranslate"><span class="pre">pylit.add</span></code> directive (see below).</p>
 </dd></dl>
 
 <dl class="rst directive">
 <dt id="directive-pylit-add">
 <span id="directive-pylit:add"></span><code class="sig-name descname">.. pylit:add::</code><a class="headerlink" href="#directive-pylit-add" title="Permalink to this definition">¶</a></dt>
-<dd><p>This directive references a previously defined code <em>Literate Programming</em> block. The code in this block is appended to the list of blocks currently contained in the named code block.</p>
+<dd><p>This directive references a previously defined code <em>Literate Programming</em> block. The code in
+this block is appended to the list of blocks currently contained in the
+named code block.</p>
 </dd></dl>
 
 <dl class="rst directive">
 <dt id="directive-pylit.file">
 <code class="sig-name descname">.. pylit.file::</code><a class="headerlink" href="#directive-pylit.file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use this directive to identify a new file containing the named code block
-list. the code written to this file will include the current list of blocks contained in the nammed <em>Literate Programming</em> block.</p>
+list. the code written to this file will include the current list of blocks
+contained in the nammed <em>Literate Programming</em> block.</p>
 </dd></dl>
 
-</div>
 
 
             <div class="clearer"></div>
@@ -163,7 +167,7 @@ list. the code written to this file will include the current list of blocks cont
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="../../development/project-setup.html" title="Project Setup"
+          <a href="../../extdev/index.html" title="Developing the PyLiT extension"
              >next</a> |</li>
         <li class="right" >
           <a href="../quickstart.html" title="pylit-quickstart"
@@ -171,7 +175,7 @@ list. the code written to this file will include the current list of blocks cont
         <li><a href="../../index.html">PyLiT home</a>&#160;|</li>
         <li><a href="../../contents.html">Documentation</a> &#187;</li>
 
-        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">sphinxcontrib.pylit</span></code> – Support for Literate Programming</a></li> 
+        <li class="nav-item nav-item-this"><a href="">&lt;no title&gt;</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

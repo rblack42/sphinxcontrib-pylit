@@ -1,4 +1,4 @@
-..  include::   /references.inc
+..  _pylit-quickstart:
 
 pylit-quickstart
 ================
@@ -29,5 +29,5 @@ Options
 See also
 --------
 
-:manpage:   `pylit(1)
+:manpage:   pylit(1)
 

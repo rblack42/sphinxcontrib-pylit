@@ -8,7 +8,7 @@ import io
 from setuptools import setup, find_packages
 
 
-import sphinxcontrib.pylit as lp
+import sphinxcontrib.pylit.meta as meta
 
 
 def readfile(filename):
@@ -20,13 +20,13 @@ readme = readfile("README.rst")
 
 setup(
     name='sphinxcontrib-pylit',
-    version=lp.version,
-    url=lp.url,
-    download_url=lp.pypi,
-    license=lp.license,
-    author=lp.author,
-    author_email=lp.email,
-    description=lp.summary,
+    version=meta.version,
+    url=meta.url,
+    download_url=meta.pypi,
+    license=meta.license,
+    author=meta.author,
+    author_email=meta.email,
+    description=meta.summary,
     long_description="\n".join(readme),
     long_description_content_type='text/x-rst',
     zip_safe=False,

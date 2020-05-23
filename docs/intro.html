@@ -14,7 +14,7 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Installing PyLiT" href="usage/installation.html" />
+    <link rel="next" title="Usage Reference" href="usage/index.html" />
     <link rel="prev" title="Indices and tables" href="index.html" />
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700'
           rel='stylesheet' type='text/css' />
@@ -78,7 +78,7 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="usage/installation.html" title="Installing PyLiT"
+          <a href="usage/index.html" title="Usage Reference"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="index.html" title="Indices and tables"
@@ -94,6 +94,7 @@
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Introduction</a><ul>
+<li><a class="reference internal" href="#features">Features</a></li>
 <li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
 <li><a class="reference internal" href="#usage">Usage</a></li>
 </ul>
@@ -104,8 +105,8 @@
   <p class="topless"><a href="index.html"
                         title="previous chapter">Indices and tables</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="usage/installation.html"
-                        title="next chapter">Installing PyLiT</a></p>
+  <p class="topless"><a href="usage/index.html"
+                        title="next chapter">Usage Reference</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -131,31 +132,54 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="introduction">
+  <p>Read time: 3.3 minutes (330 words)</p>
+<div class="section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <p>This is the documentation for the PyLiT extension for <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a>.</p>
-<p>This extension provides support for ia variation of Dr. Donald Knuth’s <em>Literate Programming</em> concepts, extended
-to also support generation of <a class="reference external" href="https://git-scm.com/">Git</a> code repositories from the documentation.
-This tool was written to support generation of lecture materials for Computer
-Science courses the author taught.</p>
+<p>This extension provides support for a variation of Dr. Donald Knuth’s <em>Literate Programming</em>
+concepts, extended to also support generation of <a class="reference external" href="https://git-scm.com/">Git</a> code repositories from
+the documentation.  This tool was originally written to support production of
+lecture materials for Computer Science courses taught for over 10 years by the
+author. It was used privately during that time, and is now being released as an
+open-source package,</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>There are several packages listed on <a class="reference external" href="https://pypi.org/">PyPi</a> with <strong>pylit</strong> in the name. I
 first used this name in 2003 as part of my Computer Science Master’s Thesis
 project at Texas State Uniersity, and I registered the <strong>pylit.org</strong> name
-in 2005 <a class="bibtex reference internal" href="zbibliography.html#black-2005" id="id1">[Bla05]</a>. If this causes confusion, I apologize to the others trying to
-build similar systems.</p>
+in 2005 <a class="bibtex reference internal" href="zbibliography.html#black-2005" id="id1">[Bla05]</a>. If this causes confusion, I apologize to the
+others trying to build similar systems.</p>
+</div>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<p>The PyLiT extensions provide a simple way to embed named code fragments in
+reStructuredText source files. Rather than relying on <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a> include mechanism, these
+fragments can be extracted automatically into conventional source code files in
+a standard (well, almost) <a class="reference external" href="https://git-scm.com/">Git</a> repository for processing by normal development
+tools.</p>
+<p>Each fragment can be written in any supported language, and may contain special
+comments which identify other named fragments to be included in the produced
+source code at the indicated point. This is in keeping with Dr. Knuth’s
+original concept of <em>Literate Programming</em>.</p>
+<p>What is not supported at the moment is the macro feature of standard <em>Literate Programming</em>.</p>
+<p>A functional <a class="reference external" href="https://git-scm.com/">Git</a> repository can be produced from the embedded source code.
+However, the history in this repository will have time stamps that do not
+reflect when the code was actually produced. Instead, the history timeline will
+be compressed but linearly accurate, based on the current state of the reStructuredText
+files processed by <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a>.</p>
+<p>The background on how this package came to exist and why it supports the
+current feature set is provided in the development notes. See
+<a class="reference internal" href="development/index.html#development"><span class="std std-ref">Development Reference</span></a>.</p>
 </div>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
-<p>Sphinx needs at least <strong>Python 3.5</strong> to run.  It also depends on 3rd party
-libraries such as <a href="#id2"><span class="problematic" id="id3">docutils_</span></a> and <a href="#id4"><span class="problematic" id="id5">jinja2_</span></a>, but they are automatically installed
-when sphinx is installed.</p>
+<p>The PyLiT package depends on <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a> and therefore needs at least <strong>Python
+3.5</strong> to run. It also requires <a class="reference external" href="https://git-scm.com/">Git</a> to manage repository production from <em>Literate Programming</em>
+source files.</p>
 </div>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<p>See <a class="reference internal" href="usage/quickstart.html"><span class="doc">pylit-quickstart</span></a> for an introduction.  It also contains links to
-more advanced sections in this manual for the topics it discusses.</p>
+<p>See <a class="reference internal" href="usage/quick-start.html"><span class="doc">pylit-quickstart</span></a> for installation guide and a quick getting-started reference.</p>
 </div>
 </div>
 
@@ -176,7 +200,7 @@ more advanced sections in this manual for the topics it discusses.</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="usage/installation.html" title="Installing PyLiT"
+          <a href="usage/index.html" title="Usage Reference"
              >next</a> |</li>
         <li class="right" >
           <a href="index.html" title="Indices and tables"

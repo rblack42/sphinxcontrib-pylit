@@ -1,5 +1,3 @@
-..  include::   /references.inc
-
 ..  _contents:
 
 |pylit| documentation contents
@@ -9,14 +7,9 @@
 
     intro
 
-    usage/installation
-    usage/quickstart
-    usage/extensions/pylit
-
-    extdev/index
-
-    development/project-setup
-    development/testing-setup
+    usage/index
+    development/index
+    source/index
 
     changes
     authors

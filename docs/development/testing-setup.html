@@ -14,7 +14,7 @@
     <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Changes in Sphinx" href="../changes.html" />
+    <link rel="next" title="Advanced PyTesting" href="advanced-pytesting.html" />
     <link rel="prev" title="Project Setup" href="project-setup.html" />
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700'
           rel='stylesheet' type='text/css' />
@@ -78,7 +78,7 @@
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="../changes.html" title="Changes in Sphinx"
+          <a href="advanced-pytesting.html" title="Advanced PyTesting"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="project-setup.html" title="Project Setup"
@@ -86,6 +86,7 @@
         <li><a href="../index.html">PyLiT home</a>&#160;|</li>
         <li><a href="../contents.html">Documentation</a> &#187;</li>
 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Development Reference</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Configuring Testing</a></li> 
       </ul>
     </div>
@@ -113,8 +114,8 @@
   <p class="topless"><a href="project-setup.html"
                         title="previous chapter">Project Setup</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="../changes.html"
-                        title="next chapter">Changes in Sphinx</a></p>
+  <p class="topless"><a href="advanced-pytesting.html"
+                        title="next chapter">Advanced PyTesting</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -140,9 +141,9 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="configuring-testing">
+  <p>Read time: 7.0 minutes (704 words)</p>
+<div class="section" id="configuring-testing">
 <h1>Configuring Testing<a class="headerlink" href="#configuring-testing" title="Permalink to this headline">¶</a></h1>
-<p>Read time: 7.0 minutes (704 words)</p>
 <p>Testing is one of the most important things you can do in developing software.
 For a serious project, there are a number of excellent tools available to make
 sure you produce high-quality code.</p>
@@ -184,11 +185,11 @@ check:</p>
 
 
 <span class="k">def</span> <span class="nf">test_answer</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="n">utils</span><span class="o">.</span><span class="n">inc</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
+    <span class="k">assert</span> <span class="n">utils</span><span class="o">.</span><span class="n">incr</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
 
 
 <span class="k">def</span> <span class="nf">test_answer2</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="n">utils</span><span class="o">.</span><span class="n">inc</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span>
+    <span class="k">assert</span> <span class="n">utils</span><span class="o">.</span><span class="n">decr</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span>
 </pre></div>
 </div>
 </div>
@@ -370,7 +371,7 @@ Computer Science and demonstrating the software development workflow.
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="../changes.html" title="Changes in Sphinx"
+          <a href="advanced-pytesting.html" title="Advanced PyTesting"
              >next</a> |</li>
         <li class="right" >
           <a href="project-setup.html" title="Project Setup"
@@ -378,6 +379,7 @@ Computer Science and demonstrating the software development workflow.
         <li><a href="../index.html">PyLiT home</a>&#160;|</li>
         <li><a href="../contents.html">Documentation</a> &#187;</li>
 
+          <li class="nav-item nav-item-1"><a href="index.html" >Development Reference</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Configuring Testing</a></li> 
       </ul>
     </div>

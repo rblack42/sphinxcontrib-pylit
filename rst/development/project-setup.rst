@@ -1,7 +1,6 @@
 Project Setup
 #############
 
-..	include::	/header.inc
 
 Step 1: Pick a project name
 ***************************

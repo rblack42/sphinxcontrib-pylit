@@ -39,6 +39,9 @@ templates_path = ['_templates']
 
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '_examples']
 
+rst_prolog = """
+..  include::   /header.inc
+"""
 
 # -- Options for HTML output -------------------------------------------------
 

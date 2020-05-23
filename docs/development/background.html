@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Literate Programming &#8212; sphinxcontrib-pylit 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinx13.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="DOn’t repeat Yourself" href="dry.html" />
+    <link rel="prev" title="Development Reference" href="index.html" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700'
+          rel='stylesheet' type='text/css' />
+ 
+    <style type="text/css">
+      table.right { float: right; margin-left: 20px; }
+      table.right td { border: 1px solid #ccc; }
+      
+    </style>
+    <script>
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+  </head><body>
+<div class="pageheader">
+  <ul>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../usage/installation.html">Get it</a></li>
+    <li><a href="../contents.html">Docs</a></li>
+    <li><a href="../develop.html">Extend/Develop</a></li>
+  </ul>
+  <div>
+    <a href="../index.html">
+      <img src="../_static/logo.png" alt="PyLiT" />
+    </a>
+  </div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="dry.html" title="DOn’t repeat Yourself"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Development Reference"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">PyLiT home</a>&#160;|</li>
+        <li><a href="../contents.html">Documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Development Reference</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Literate Programming</a></li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Literate Programming</a><ul>
+<li><a class="reference internal" href="#lpblocks-and-github">LPblocks and Github</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Development Reference</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="dry.html"
+                        title="next chapter"><em>DOn’t repeat Yourself</em></a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/development/background.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p>Read time: 3.7 minutes (374 words)</p>
+<div class="section" id="literate-programming">
+<h1>Literate Programming<a class="headerlink" href="#literate-programming" title="Permalink to this headline">¶</a></h1>
+<p>In 1984, Dr. Donald Knuth decided that software developers needed a new way to
+document their code. In Knuth’s mind, documentation should be written for the
+human reader, like a work of literature. The documentation should take the
+reader on a journey through the code, in whatever order makes sense in
+explaining the code. The actual code should be presented in small sections
+included within the document. Knuth wrote a few tools supporting his ideas,
+and those tools actually extract the code described in the document for
+processing by conventional development tools.</p>
+<p>Knuth’s idea did not take off as he wished, but there are many developers who
+feel this is the right way to approach explaining code.</p>
+<p>In my profession as a Computer Science educator, I have written thousands of
+lectures using the Python <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a> tool, and have added some custom extensions
+that support a limited for m of Knuth’s concepts. This project seeks to expand
+my early experiments and present something I think can be very useful, both
+in teaching, and in software development.</p>
+<p>The <strong>sphinxcontrib-lpblocks</strong> extension allows developers to add blocks of
+code with embedded links to other sections of code in a manner very similar to
+Knuth’s original proposal. In addition, the extension supports adding shell
+commands that will extract the code presented so far, and run commands against
+that version of the code. Later work might replace earlier code with new
+blocks, and again those versions can be processed. This is basically how I
+present programming concepts in a classroom, and my lecture notes can be living
+documents using this extension.</p>
+<div class="section" id="lpblocks-and-github">
+<h2>LPblocks and Github<a class="headerlink" href="#lpblocks-and-github" title="Permalink to this headline">¶</a></h2>
+<p>There is one minor wrinkle in this idea. Most developers want their code to
+be hosted on something like <a class="reference external" href="https://github.com/">Github</a>, and managed by <a class="reference external" href="https://git-scm.com/">Git</a>. In deciding to document
+code using Literate Programming, it is the documentation that is the primary
+source to be managed. The code is in that documentation, but must be extracted
+for viewing, testing, and even releasing.</p>
+<p>That means that a visitor to a project n <a class="reference external" href="https://github.com/">Github</a> will not be able to explore the
+code directly. This might be considered a defect in this idea, but it actually
+is in keeping with Knuth’s original idea. Development should happen in the
+documentation, not not be produced as an afterthought!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I have som eideas how to integrate conventionsl Git management with
+Literate Programming. Those ideas may well appear in this project over
+time. Contributions are welcome!</p>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="dry.html" title="DOn’t repeat Yourself"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Development Reference"
+             >previous</a> |</li>
+        <li><a href="../index.html">PyLiT home</a>&#160;|</li>
+        <li><a href="../contents.html">Documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Development Reference</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Literate Programming</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Roie R. Black.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.0.3.
+    </div>
+  </body>
+</html>
