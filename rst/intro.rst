@@ -43,7 +43,7 @@ files processed by Sphinx_.
 
 The background on how this package came to exist and why it supports the
 current feature set is provided in the development notes. See
-:ref:`development`.
+:ref:`develop`.
 
 Prerequisites
 -------------

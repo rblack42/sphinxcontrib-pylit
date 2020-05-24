@@ -1,4 +1,4 @@
-..  _development:
+..  _develop:
 
 Development Reference
 #####################
@@ -11,4 +11,5 @@ Development Reference
     project-setup
     testing-setup
     advanced-pytesting
+    tdd-sphinx-extensions
 

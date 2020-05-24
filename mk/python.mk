@@ -20,4 +20,9 @@ test: ## Run unit tests
 
 .PHONY: changes
 changes:	## create CHANGES file from git logs
-	git log --oneline --pretty=format:"* %ad: %s\n" --date=short > CHANGES
+	git log --oneline --pretty=format:"* %ad: %s" --date=short > CHANGES
+
+.PHONY: deploy
+deploy:	## deploy web pages to public server
+	scripts/deploy.sh
+

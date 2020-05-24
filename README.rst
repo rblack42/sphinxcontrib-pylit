@@ -14,7 +14,7 @@ Computer Science and demonstrating the software development workflow.
 
 * Download: https://pypi.python.org/pypi/sphinxcontrib-pylit/#downloads
 
-* Documentation: http://rblack42.github.io/sphinxcontrib-pylit
+* Documentation: http://www.pylit.org/sphinxcontrib/
 
 * Development: https://github.com/rblack42/sphinxcontrib-pylit/
 

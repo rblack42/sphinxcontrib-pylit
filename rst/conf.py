@@ -4,7 +4,7 @@ import sys
 
 sys.path.insert(0, os.path.abspath('..'))
 import sphinx
-from sphinxcontrib import pylit
+from sphinxcontrib.pylit import meta
 
 # Include todo list
 todo_include_todos = True
@@ -14,10 +14,10 @@ todo_include_todos = True
 project = 'sphinxcontrib-pylit'
 copyright = '2020, Roie R. Black'
 author = 'Roie R. Black'
-version = pylit.version
+version = meta.version
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.1'
+release = version
 
 
 # -- General configuration ---------------------------------------------------
@@ -35,9 +35,15 @@ extensions = [
         'sphinxcontrib.bibtex',
 ]
 
+master_doc = 'contents'
 templates_path = ['_templates']
-
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '_examples']
+
+project = 'PyLiT'
+copyright = '2020, Roie R. Black and the Sphinx team'
+version = meta.version
+release = version
+show_authors = True
 
 rst_prolog = """
 ..  include::   /header.inc
@@ -49,6 +55,8 @@ html_theme = 'sphinx13'
 html_theme_path = ['_themes']
 html_static_path = ['_static']
 html_sidebars = {'index': ['indexsidebar.html', 'searchbox.html']}
+html_additional_pages = {'index': 'index.html'}
+html_logo = '_static/pylit.svg'
 
 # -- Extension interface -------------------------------------------------------
 

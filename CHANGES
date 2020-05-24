@@ -1,19 +1,22 @@
-* 2020-05-21: fixing flake8 error\n
-* 2020-05-21: removed mk from climate testing\n
-* 2020-05-21: added exclude paths for code climate\n
-* 2020-05-21: typo in requirements.txt\n
-* 2020-05-21: added flake8 testing\n
-* 2020-05-21: updated tox config\n
-* 2020-05-21: moved apveyor to tox\n
-* 2020-05-21: changes travis testing to tox\n
-* 2020-05-21: added tox testing\n
-* 2020-05-21: testing code coverage\n
-* 2020-05-20: added pytest to requirements for testing\n
-* 2020-05-20: testing testing services\n
-* 2020-05-20: working on appveyor\n
-* 2020-05-20: removed tox testing for now\n
-* 2020-05-20: adding testing setup\n
-* 2020-05-20: SPhinx 4 is using content.rst, not index.rst - fixed for now\n
-* 2020-05-20: fixed build number in readme and version string\n
-* 2020-05-20: Project live on pypi\n
-* 2020-05-20: initial setup\n
+* 2020-05-23: emoved rst files from codeclimate checks
+* 2020-05-23: added sphinx to tox setup
+* 2020-05-23: initial sphinx domain tests
+* 2020-05-21: fixing flake8 error
+* 2020-05-21: removed mk from climate testing
+* 2020-05-21: added exclude paths for code climate
+* 2020-05-21: typo in requirements.txt
+* 2020-05-21: added flake8 testing
+* 2020-05-21: updated tox config
+* 2020-05-21: moved apveyor to tox
+* 2020-05-21: changes travis testing to tox
+* 2020-05-21: added tox testing
+* 2020-05-21: testing code coverage
+* 2020-05-20: added pytest to requirements for testing
+* 2020-05-20: testing testing services
+* 2020-05-20: working on appveyor
+* 2020-05-20: removed tox testing for now
+* 2020-05-20: adding testing setup
+* 2020-05-20: SPhinx 4 is using content.rst, not index.rst - fixed for now
+* 2020-05-20: fixed build number in readme and version string
+* 2020-05-20: Project live on pypi
+* 2020-05-20: initial setup
