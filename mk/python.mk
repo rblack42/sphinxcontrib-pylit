@@ -26,3 +26,6 @@ changes:	## create CHANGES file from git logs
 deploy:	## deploy web pages to public server
 	scripts/deploy.sh
 
+.PHONY: type-check
+type-check:	## Check types with mypy
+	mypy sphinxcontrib

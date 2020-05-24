@@ -8,6 +8,7 @@ Development Reference
 
     background
     dry
+    style
     project-setup
     testing-setup
     advanced-pytesting

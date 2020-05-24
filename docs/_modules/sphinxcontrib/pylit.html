@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>sphinxcontrib.pylit &#8212; PyLiT 0.0.1 documentation</title>
+    <title>sphinxcontrib.pylit &#8212; PyLiT 0.0.2 documentation</title>
     <link rel="stylesheet" href="../../_static/sphinx13.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -113,10 +113,12 @@
 
 
 <div class="viewcode-block" id="pylit_node"><a class="viewcode-back" href="../../source/pylitdomain.html#sphinxcontrib.pylit.pylit_node">[docs]</a><span class="k">class</span> <span class="nc">pylit_node</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">General</span><span class="p">,</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Element</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Create a pylit node type&quot;&quot;&quot;</span>
     <span class="k">pass</span></div>
 
 
 <div class="viewcode-block" id="PyLiTNode"><a class="viewcode-back" href="../../source/pylitdomain.html#sphinxcontrib.pylit.PyLiTNode">[docs]</a><span class="k">class</span> <span class="nc">PyLiTNode</span><span class="p">(</span><span class="n">ObjectDescription</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Manage pylit nodes&quot;&quot;&quot;</span>
 
     <span class="n">required_arguments</span> <span class="o">=</span> <span class="mi">1</span>
 
@@ -126,16 +128,21 @@
 
 
 <div class="viewcode-block" id="PyLiTDomain"><a class="viewcode-back" href="../../source/pylitdomain.html#sphinxcontrib.pylit.PyLiTDomain">[docs]</a><span class="k">class</span> <span class="nc">PyLiTDomain</span><span class="p">(</span><span class="n">Domain</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Create the pylit domain&quot;&quot;&quot;</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;pylit&#39;</span>
     <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;PyLiT Literate&#39;</span>
 
     <span class="n">directives</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="n">PyLiTNode</span><span class="p">,</span>
+        <span class="s1">&#39;add&#39;</span><span class="p">:</span> <span class="n">PyLiTNode</span><span class="p">,</span>
+        <span class="s1">&#39;file&#39;</span><span class="p">:</span> <span class="n">PyLiTNode</span><span class="p">,</span>
+        <span class="s1">&#39;shell&#39;</span><span class="p">:</span> <span class="n">PyLiTNode</span><span class="p">,</span>
     <span class="p">}</span></div>
 
 
-<span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">add_domain</span><span class="p">(</span><span class="n">PyLiTDomain</span><span class="p">)</span>
+<div class="viewcode-block" id="setup"><a class="viewcode-back" href="../../source/pylitdomain.html#sphinxcontrib.pylit.setup">[docs]</a><span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Register the pylit domain&quot;&quot;&quot;</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">add_domain</span><span class="p">(</span><span class="n">PyLiTDomain</span><span class="p">)</span></div>
 </pre></div>
 
             <div class="clearer"></div>

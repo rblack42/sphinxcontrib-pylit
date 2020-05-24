@@ -1,5 +1,5 @@
 sphinxcontrib.pylit
 ===================
 
-.. automodule:: sphinxcontrib.pylit
+..  automodule:: sphinxcontrib.pylit
     :members:

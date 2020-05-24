@@ -12,6 +12,7 @@ VERSION = "sphinxcontrib/pylit/meta.py"
 class Versioning(object):
 
     def __init__(self, opt):
+        """Initialize by reading existing strings from meta.py"""
         self.inc_opt = opt
         self.lines = []
         if os.path.isfile(VERSION):
@@ -19,11 +20,14 @@ class Versioning(object):
                 self.lines = fin.readlines()
 
     def _get_version_string(self):
+        """Process lines looking for version string"""
         vstring = "0.0.0"
         if len(self.lines) == 0:
-            self.lines.append("# Copyright %d %s\n\n" % (YEAR, AUTHOR))
+            self.lines.append("# Copyright %d %s\n" % (YEAR, AUTHOR))
+            self.lines/append("\n")
             self.lines.append("version = %s\n" % vstring)
 
+        # locate version string
         lc = 0
         for l in self.lines:
             m = version_re.match(l)
@@ -32,8 +36,10 @@ class Versioning(object):
                 break
             else:
                 lc+=1
-            self.lc = lc
-            self.vstring = vstring
+
+        self.lc = lc
+        self.vstring = vstring
+        print("%s found on line %d" % (vstring, lc))
 
     def parse(self):
         self._get_version_string()
@@ -55,7 +61,6 @@ class Versioning(object):
         self.vstring = major + '.' + minor + "." + build
 
     def update_version_string(self):
-        print("UP: ", self.lc, self.vstring)
         self.lines[self.lc] = "version = \"%s\"" % self.vstring
         with open(VERSION, 'w') as fout:
             for l in self.lines:

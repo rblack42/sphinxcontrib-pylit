@@ -16,6 +16,8 @@
 ..	|LP|		replace:: *Literate Programming*
 ..	_LP:		https://en.wikipedia.org/wiki/Literate_programming
 ..  _Make:      https://www.gnu.org/software/make/
+..  _MyPy:      http://mypy-lang.org/
+..  _MonkeyType:    https://github.com/Instagram/MonkeyType
 ..  _PyPi:      https://pypi.org/
 ..  _pytest:    https://docs.pytest.org/en/latest/
 ..  _pytest-cov:    https://github.com/pytest-dev/pytest-cov/
