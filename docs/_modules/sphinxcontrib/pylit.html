@@ -106,7 +106,7 @@
           <div class="body" role="main">
             
   <h1>Source code for sphinxcontrib.pylit</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
+<span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">cast</span>
 
 <span class="kn">from</span> <span class="nn">docutils</span> <span class="kn">import</span> <span class="n">nodes</span>
@@ -116,14 +116,12 @@
 
 <span class="kn">import</span> <span class="nn">sphinx</span>
 <span class="kn">from</span> <span class="nn">sphinx.application</span> <span class="kn">import</span> <span class="n">Sphinx</span>
-<span class="kn">from</span> <span class="nn">sphinx.deprecation</span> <span class="kn">import</span> <span class="n">RemovedInSphinx40Warning</span>
 <span class="kn">from</span> <span class="nn">sphinx.domains</span> <span class="kn">import</span> <span class="n">Domain</span>
 <span class="kn">from</span> <span class="nn">sphinx.environment</span> <span class="kn">import</span> <span class="n">BuildEnvironment</span>
 <span class="kn">from</span> <span class="nn">sphinx.errors</span> <span class="kn">import</span> <span class="n">NoUri</span>
-<span class="kn">from</span> <span class="nn">sphinx.locale</span> <span class="kn">import</span> <span class="n">_</span><span class="p">,</span> <span class="n">__</span>
+<span class="kn">from</span> <span class="nn">sphinx.locale</span> <span class="kn">import</span> <span class="n">_</span>
 <span class="kn">from</span> <span class="nn">sphinx.util</span> <span class="kn">import</span> <span class="n">logging</span><span class="p">,</span> <span class="n">texescape</span>
 <span class="kn">from</span> <span class="nn">sphinx.util.docutils</span> <span class="kn">import</span> <span class="n">SphinxDirective</span><span class="p">,</span> <span class="n">new_document</span>
-<span class="kn">from</span> <span class="nn">sphinx.util.nodes</span> <span class="kn">import</span> <span class="n">make_refnode</span>
 <span class="kn">from</span> <span class="nn">sphinx.writers.html</span> <span class="kn">import</span> <span class="n">HTMLTranslator</span>
 <span class="kn">from</span> <span class="nn">sphinx.writers.latex</span> <span class="kn">import</span> <span class="n">LaTeXTranslator</span>
 
@@ -193,6 +191,7 @@
             <span class="n">env</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;pylit-defined&#39;</span><span class="p">,</span> <span class="n">pylit</span><span class="p">)</span>
             <span class="n">pylits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pylit</span><span class="p">)</span></div></div>
 
+
 <div class="viewcode-block" id="PylitList"><a class="viewcode-back" href="../../source/pylitdomain.html#sphinxcontrib.pylit.PylitList">[docs]</a><span class="k">class</span> <span class="nc">PylitList</span><span class="p">(</span><span class="n">SphinxDirective</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A list of all pylit entries.</span>
@@ -210,7 +209,10 @@
 
 
 <span class="k">class</span> <span class="nc">PylitListProcessor</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="p">:</span> <span class="n">Sphinx</span><span class="p">,</span> <span class="n">doctree</span><span class="p">:</span> <span class="n">nodes</span><span class="o">.</span><span class="n">document</span><span class="p">,</span> <span class="n">docname</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+                <span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="p">:</span> <span class="n">Sphinx</span><span class="p">,</span>
+                <span class="n">doctree</span><span class="p">:</span> <span class="n">nodes</span><span class="o">.</span><span class="n">document</span><span class="p">,</span>
+                <span class="n">docname</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">builder</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">builder</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">config</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">env</span>
@@ -234,9 +236,13 @@
 
                 <span class="c1"># (Recursively) resolve references in the pylit content</span>
                 <span class="c1">#</span>
-                <span class="c1"># Note: To resolve references, it is needed to wrap it with document node</span>
+                <span class="c1"># Note: To resolve references, it is needed to</span>
+                <span class="c1"># wrap it with document node</span>
                 <span class="n">document</span> <span class="o">+=</span> <span class="n">new_pylit</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">resolve_references</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="n">pylit</span><span class="p">[</span><span class="s1">&#39;docname&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">builder</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">resolve_references</span><span class="p">(</span>
+                        <span class="n">document</span><span class="p">,</span>
+                        <span class="n">pylit</span><span class="p">[</span><span class="s1">&#39;docname&#39;</span><span class="p">],</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">builder</span><span class="p">)</span>
                 <span class="n">document</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">new_pylit</span><span class="p">)</span>
                 <span class="n">content</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_pylit</span><span class="p">)</span>
 
@@ -245,9 +251,12 @@
 
             <span class="n">node</span><span class="o">.</span><span class="n">replace_self</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">create_pylit_reference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pylit</span><span class="p">:</span> <span class="n">pylit_node</span><span class="p">,</span> <span class="n">docname</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">nodes</span><span class="o">.</span><span class="n">paragraph</span><span class="p">:</span>
-        <span class="n">description</span> <span class="o">=</span> <span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s1">&#39;(The &lt;&lt;original entry&gt;&gt; is located in </span><span class="si">%s</span><span class="s1">, line </span><span class="si">%d</span><span class="s1">.)&#39;</span><span class="p">)</span> <span class="o">%</span>
-                           <span class="p">(</span><span class="n">pylit</span><span class="o">.</span><span class="n">source</span><span class="p">,</span> <span class="n">pylit</span><span class="o">.</span><span class="n">line</span><span class="p">))</span>
+    <span class="k">def</span> <span class="nf">create_pylit_reference</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="n">pylit</span><span class="p">:</span> <span class="n">pylit_node</span><span class="p">,</span>
+            <span class="n">docname</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">nodes</span><span class="o">.</span><span class="n">paragraph</span><span class="p">:</span>
+        <span class="n">description</span> <span class="o">=</span> <span class="p">(</span><span class="n">_</span><span class="p">(</span>
+                <span class="s1">&#39;(The &lt;&lt;original entry&gt;&gt; is located in </span><span class="si">%s</span><span class="s1">, line </span><span class="si">%d</span><span class="s1">.)&#39;</span><span class="p">)</span> <span class="o">%</span>
+                <span class="p">(</span><span class="n">pylit</span><span class="o">.</span><span class="n">source</span><span class="p">,</span> <span class="n">pylit</span><span class="o">.</span><span class="n">line</span><span class="p">))</span>
 
         <span class="n">prefix</span> <span class="o">=</span> <span class="n">description</span><span class="p">[:</span><span class="n">description</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;&lt;&lt;&#39;</span><span class="p">)]</span>
         <span class="n">suffix</span> <span class="o">=</span> <span class="n">description</span><span class="p">[</span><span class="n">description</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;&gt;&gt;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="p">:]</span>
@@ -259,7 +268,8 @@
         <span class="n">linktext</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">emphasis</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s1">&#39;original entry&#39;</span><span class="p">),</span> <span class="n">_</span><span class="p">(</span><span class="s1">&#39;original entry&#39;</span><span class="p">))</span>
         <span class="n">reference</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">reference</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">linktext</span><span class="p">,</span> <span class="n">internal</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">reference</span><span class="p">[</span><span class="s1">&#39;refuri&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">get_relative_uri</span><span class="p">(</span><span class="n">docname</span><span class="p">,</span> <span class="n">pylit</span><span class="p">[</span><span class="s1">&#39;docname&#39;</span><span class="p">])</span>
+            <span class="n">reference</span><span class="p">[</span><span class="s1">&#39;refuri&#39;</span><span class="p">]</span> <span class="o">=</span> \
+                    <span class="bp">self</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">get_relative_uri</span><span class="p">(</span><span class="n">docname</span><span class="p">,</span> <span class="n">pylit</span><span class="p">[</span><span class="s1">&#39;docname&#39;</span><span class="p">])</span>
             <span class="n">reference</span><span class="p">[</span><span class="s1">&#39;refuri&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="s1">&#39;#&#39;</span> <span class="o">+</span> <span class="n">pylit</span><span class="p">[</span><span class="s1">&#39;ids&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">except</span> <span class="n">NoUri</span><span class="p">:</span>
             <span class="c1"># ignore if no URI can be determined, e.g. for LaTeX output</span>
@@ -269,22 +279,6 @@
         <span class="n">para</span> <span class="o">+=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">suffix</span><span class="p">,</span> <span class="n">suffix</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">para</span>
-
-
-<span class="k">def</span> <span class="nf">purge_pylits</span><span class="p">(</span><span class="n">app</span><span class="p">:</span> <span class="n">Sphinx</span><span class="p">,</span> <span class="n">env</span><span class="p">:</span> <span class="n">BuildEnvironment</span><span class="p">,</span> <span class="n">docname</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;purge_pylits() is deprecated.&#39;</span><span class="p">,</span> <span class="n">RemovedInSphinx40Warning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">env</span><span class="o">.</span><span class="n">pylit_all_pylits</span> <span class="o">=</span> <span class="p">[</span><span class="n">pylit</span> <span class="k">for</span> <span class="n">pylit</span> <span class="ow">in</span> <span class="n">env</span><span class="o">.</span><span class="n">pylit_all_pylits</span>  <span class="c1"># type: ignore</span>
-                          <span class="k">if</span> <span class="n">pylit</span><span class="p">[</span><span class="s1">&#39;docname&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">docname</span><span class="p">]</span>
-
-
-<span class="k">def</span> <span class="nf">merge_info</span><span class="p">(</span><span class="n">app</span><span class="p">:</span> <span class="n">Sphinx</span><span class="p">,</span> <span class="n">env</span><span class="p">:</span> <span class="n">BuildEnvironment</span><span class="p">,</span> <span class="n">docnames</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
-               <span class="n">other</span><span class="p">:</span> <span class="n">BuildEnvironment</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;merge_info() is deprecated.&#39;</span><span class="p">,</span> <span class="n">RemovedInSphinx40Warning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s1">&#39;pylit_all_pylits&#39;</span><span class="p">):</span>
-        <span class="k">return</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="s1">&#39;pylit_all_pylits&#39;</span><span class="p">):</span>
-        <span class="n">env</span><span class="o">.</span><span class="n">pylit_all_pylits</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: ignore</span>
-    <span class="n">env</span><span class="o">.</span><span class="n">pylit_all_pylits</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">pylit_all_pylits</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
 
 
 <span class="k">def</span> <span class="nf">visit_pylit_node</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">HTMLTranslator</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">pylit_node</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
