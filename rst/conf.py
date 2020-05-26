@@ -8,6 +8,8 @@ from sphinxcontrib.pylit import meta
 
 # Include todo list
 todo_include_todos = True
+pylit_include_pylits = True
+#pylit_emit_warnings = True
 
 # -- Project information -----------------------------------------------------
 
@@ -33,6 +35,7 @@ extensions = [
         'sphinx.ext.coverage',
         'sphinx_ext.wordcount',
         'sphinxcontrib.bibtex',
+        'sphinxcontrib.pylit'
 ]
 
 master_doc = 'contents'

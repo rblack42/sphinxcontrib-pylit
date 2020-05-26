@@ -9,6 +9,7 @@
 *.py[cod]
 __pycache__
 _venv
+_sandbox
 
 # Sphinx
 rst/_build

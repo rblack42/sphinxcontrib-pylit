@@ -1,8 +1,7 @@
 import pytest
 
 
-@pytest.mark.sphinx('html', testroot='ext-pylit', freshenv=True,
-                    confoverrides={'pylit_emit_warnings': True})
+@pytest.mark.sphinx('html', testroot='sphinx', freshenv=True)
 def test_pylit(app, status, warning):
 
     app.builder.build_all()

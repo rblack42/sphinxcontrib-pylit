@@ -8,7 +8,7 @@ import io
 from setuptools import setup, find_packages
 
 
-import sphinxcontrib.pylit.meta as meta
+from sphinxcontrib.pylit import meta
 
 
 def readfile(filename):

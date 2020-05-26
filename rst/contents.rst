@@ -14,6 +14,7 @@
     changes
     authors
 
+    pylit-index
     zbibliography
 
 Indices and tables

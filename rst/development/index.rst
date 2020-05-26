@@ -13,4 +13,5 @@ Development Reference
     testing-setup
     advanced-pytesting
     tdd-sphinx-extensions
-
+    pylit-directives
+    pylit-add-directive
