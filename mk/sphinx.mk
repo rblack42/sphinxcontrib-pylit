@@ -1,6 +1,6 @@
 .PHONY:	docs
 docs:	changes	## run Sphinx to build html pages
-	pip install . && \
+	pip install -e . && \
 	cd rst && \
 	sphinx-build -b html -d _build/doctrees . ../docs
 

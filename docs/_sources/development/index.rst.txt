@@ -9,6 +9,7 @@ Development Reference
     background
     dry
     style
+    data-store
     project-setup
     testing-setup
     advanced-pytesting

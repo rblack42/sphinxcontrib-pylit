@@ -34,6 +34,8 @@ extensions = [
         'sphinx.ext.napoleon',
         'sphinx.ext.coverage',
         'sphinx_ext.wordcount',
+        'sphinx_ext.programoutput',
+        'sphinx_ext.pylit_oz',
         'sphinxcontrib.bibtex',
         'sphinxcontrib.pylit'
 ]
