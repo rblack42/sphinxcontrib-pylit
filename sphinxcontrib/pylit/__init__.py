@@ -17,6 +17,8 @@ from sphinx.util.docutils import SphinxDirective, new_document
 from sphinx.writers.html import HTMLTranslator
 from sphinx.writers.latex import LaTeXTranslator
 
+from .DataStore import DataStore
+
 logger = logging.getLogger(__name__)
 
 
