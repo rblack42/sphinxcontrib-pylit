@@ -95,6 +95,15 @@
             <p class="logo"><a href="../contents.html">
               <img class="logo" src="../_static/pylit.svg" alt="Logo"/>
             </a></p>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">PyLiT Data Store</a><ul>
+<li><a class="reference internal" href="#how-git-stores-files">How Git Stores Files</a></li>
+<li><a class="reference internal" href="#formal-specification">Formal Specification</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="style.html"
                         title="previous chapter">Project Style Rules</a></p>
@@ -126,7 +135,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <p>Read time: 1.4 minutes (135 words)</p>
+  <p>Read time: 3.4 minutes (342 words)</p>
 <div class="section" id="pylit-data-store">
 <h1>PyLiT Data Store<a class="headerlink" href="#pylit-data-store" title="Permalink to this headline">¶</a></h1>
 <p>PyLiT uses a data store modeled after the one used by <a class="reference external" href="https://git-scm.com/">Git</a> t manage
@@ -140,9 +149,32 @@ determine what transformation needs to be done. The heart of PyLiT is based
 on performing the transformations as part of storing the block, and that
 transformation does not need to be redone unless the source for that block
 changes.</p>
+<div class="section" id="how-git-stores-files">
+<h2>How Git Stores Files<a class="headerlink" href="#how-git-stores-files" title="Permalink to this headline">¶</a></h2>
+<p>Git manages a single file, actually, a single version of a file, as a “blob”.
+The contents of the file are run through a SHA-1 hash function that calculates a
+40 character hash code for that file. The odds of two files generating the same
+hash code are extremely low, so we use this code to identify the blob.</p>
+<p>Git splits this 40 character code into two parts. The first two characters name
+a subdirectory under the data store root directory. The remaining 38 characters
+becomes a new file name for the compressed contents of the file.</p>
+<p>This process loses the file name, so <a class="reference external" href="https://git-scm.com/">Git</a> uses a second primary object called a “tree” to save that information.</p>
+<p>A <em>tree</em> is a text file containing a list of other objects and the names of
+those objects.</p>
+<p>Finally, <a class="reference external" href="https://git-scm.com/">Git</a> defines a “commit” object which tracks the author (commiter),
+date, and a log message for a commit. It also holds a list of the trees defined
+at that moment in the repository.</p>
+</div>
+<div class="section" id="formal-specification">
+<h2>Formal Specification<a class="headerlink" href="#formal-specification" title="Permalink to this headline">¶</a></h2>
 <p>At the risk of losing some readers, we will present the specification of the
 PyLiT data store in a formal notation.</p>
-<img src="../_images/oz/6f40857c41e1f252c2a9f91a56a138ed.png" /></div>
+<img src="../_images/oz/8e2649b1b7fec6d2917a942b9d320af9.png" /><p>What this odd notation says is fairly simple (especially if you ever took a
+discrete math course).  Our data store is a system that maps files into blocks,
+and stores those blocks in a set. That means there is one and only one unique
+block in the system.</p>
+</div>
+</div>
 
 
             <div class="clearer"></div>
