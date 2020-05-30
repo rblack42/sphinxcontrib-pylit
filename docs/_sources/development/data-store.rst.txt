@@ -26,7 +26,8 @@ Git splits this 40 character code into two parts. The first two characters name
 a subdirectory under the data store root directory. The remaining 38 characters
 becomes a new file name for the compressed contents of the file.
 
-This process loses the file name, so Git_ uses a second primary object called a "tree" to save that information.
+This process loses the file name, so Git_ uses a second primary object called a
+"tree" to save that information.
 
 A *tree* is a text file containing a list of other objects and the names of
 those objects.

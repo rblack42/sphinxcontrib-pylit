@@ -37,8 +37,11 @@ extensions = [
         'sphinx_ext.programoutput',
         'sphinx_ext.pylit_oz',
         'sphinxcontrib.bibtex',
+        'sphinxcontrib.tikz',
         'sphinxcontrib.pylit'
 ]
+
+tikz_proc_suite = 'ImageMagick'
 
 master_doc = 'contents'
 templates_path = ['_templates']

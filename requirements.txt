@@ -1,6 +1,7 @@
 sphinx
 sphinx-rtd-theme
 sphinxcontrib-bibtex
+sphinxcontrib-tikz
 pytest
 pytest-cov
 tox

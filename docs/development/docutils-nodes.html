@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Testing Pylit Blocks &#8212; PyLiT 0.0.2 documentation</title>
+    <title>DocUtils Nodes &#8212; PyLiT 0.0.2 documentation</title>
     <link rel="stylesheet" href="../_static/sphinx13.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -14,8 +14,8 @@
     <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="PyLiT Directives" href="pylit-add-directive.html" />
-    <link rel="prev" title="Test Driven Development of Sphinx Extensions" href="tdd-sphinx-extensions.html" />
+    <link rel="next" title="The PyLiT Sphinx_extension" href="../source/index.html" />
+    <link rel="prev" title="Tracing Sphinx Domain Directives" href="tracing-sphinx.html" />
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700'
           rel='stylesheet' type='text/css' />
  
@@ -78,16 +78,16 @@
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="pylit-add-directive.html" title="PyLiT Directives"
+          <a href="../source/index.html" title="The PyLiT Sphinx_extension"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="tdd-sphinx-extensions.html" title="Test Driven Development of Sphinx Extensions"
+          <a href="tracing-sphinx.html" title="Tracing Sphinx Domain Directives"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">PyLiT home</a>&#160;|</li>
         <li><a href="../contents.html">Documentation</a> &#187;</li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Development Reference</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Testing Pylit Blocks</a></li> 
+        <li class="nav-item nav-item-this"><a href="">DocUtils Nodes</a></li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -96,15 +96,15 @@
               <img class="logo" src="../_static/pylit.svg" alt="Logo"/>
             </a></p>
   <h4>Previous topic</h4>
-  <p class="topless"><a href="tdd-sphinx-extensions.html"
-                        title="previous chapter"><em>Test Driven Development</em> of Sphinx Extensions</a></p>
+  <p class="topless"><a href="tracing-sphinx.html"
+                        title="previous chapter">Tracing Sphinx Domain Directives</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="pylit-add-directive.html"
-                        title="next chapter">PyLiT Directives</a></p>
+  <p class="topless"><a href="../source/index.html"
+                        title="next chapter">The PyLiT Sphinx_extension</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/development/pylit-directives.rst.txt"
+      <li><a href="../_sources/development/docutils-nodes.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -126,10 +126,45 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <p>Read time: 0.0 minutes (0 words)</p>
-<div class="section" id="testing-pylit-blocks">
-<h1>Testing Pylit Blocks<a class="headerlink" href="#testing-pylit-blocks" title="Permalink to this headline">¶</a></h1>
-</div>
+  <p>Read time: 0.0 minutes (3 words)</p>
+<div class="section" id="docutils-nodes">
+<h1>DocUtils Nodes<a class="headerlink" href="#docutils-nodes" title="Permalink to this headline">¶</a></h1>
+<div class="figure" id="id1">
+<p><img src="../_images/tikz-a2b4cec0987802fd3f9b5d9d1fbdd64020e114cb.png" alt="\draw[thick,rounded corners=8pt]
+(0,0)--(0,2)--(1,3.25)--(2,2)--(2,0)--(0,2)--(2,2)--(0,0)--(2,0);" /></p>
+<p class="caption"><span class="caption-text">An Example Directive with Caption</span></p>
+</div><div class="figure" id="id2">
+<p><img src="../_images/tikz-b11c13480f93967c0ae5bb90f6d5be71b029029f.png" alt="\begin{class}[text width=8cm]{Node}{0,0}
+    \attribute{parentname : Node = None}
+    \attribute{document : Document = None}
+    \attribute{source : str = None}
+    \attribute{line : int = 0}
+
+    \operation{traverse(parameter list) : type of value returned}
+    % virtual operation
+    \operation[0]{depart(parameters list) : type of value returned}
+\end{class}" /></p>
+<p class="caption"><span class="caption-text">Example UML Class</span></p>
+</div><p>And more text.</p>
+<div class="figure" id="id3">
+<p><img src="../_images/tikz-4f2d47d53c2a7c4e79cbef3795771a255f432992.png" alt="\begin{class}[text width=5cm]{BankAccount}{0,0}
+    \attribute{owner : String} \attribute{balance : Dollars = 0}
+    \operation{deposit(amount : Dollars)}
+    \operation[0]{withdrawl(amount : Dollars)}
+\end{class}
+\begin{class}[text width=7cm]{CheckingAccount}{-5,-5}
+    \inherit{BankAccount}
+    \attribute{insufficientFundsFee : Dollars}
+    \operation{processCheck ( checkToProcess : Check )}
+    \operation{withdrawal ( amount : Dollars )}
+\end{class}
+\begin{class}[text width=7cm]{SavingsAccount}{5,-5}
+    \inherit{BankAccount}
+    \attribute{annualInteresRate : Percentage}
+    \operation{depositMonthlyInterest ( )} \operation{withdrawal ( amount : Dollars )}
+\end{class}" /></p>
+<p class="caption"><span class="caption-text">logo</span></p>
+</div></div>
 
 
             <div class="clearer"></div>
@@ -148,16 +183,16 @@
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="pylit-add-directive.html" title="PyLiT Directives"
+          <a href="../source/index.html" title="The PyLiT Sphinx_extension"
              >next</a> |</li>
         <li class="right" >
-          <a href="tdd-sphinx-extensions.html" title="Test Driven Development of Sphinx Extensions"
+          <a href="tracing-sphinx.html" title="Tracing Sphinx Domain Directives"
              >previous</a> |</li>
         <li><a href="../index.html">PyLiT home</a>&#160;|</li>
         <li><a href="../contents.html">Documentation</a> &#187;</li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Development Reference</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Testing Pylit Blocks</a></li> 
+        <li class="nav-item nav-item-this"><a href="">DocUtils Nodes</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

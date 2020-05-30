@@ -1,6 +1,8 @@
 Pylit Block List
 ################
 
-..  pylitlist::
+..  pylit:index::    python
+
+    index = []
 
 

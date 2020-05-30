@@ -17,3 +17,4 @@ Development Reference
     pylit-directives
     pylit-add-directive
     tracing-sphinx
+    docutils-nodes
