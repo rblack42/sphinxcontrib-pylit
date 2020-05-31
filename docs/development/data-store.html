@@ -135,7 +135,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <p>Read time: 3.4 minutes (342 words)</p>
+  <p>Read time: 3.4 minutes (341 words)</p>
 <div class="section" id="pylit-data-store">
 <h1>PyLiT Data Store<a class="headerlink" href="#pylit-data-store" title="Permalink to this headline">¶</a></h1>
 <p>PyLiT uses a data store modeled after the one used by <a class="reference external" href="https://git-scm.com/">Git</a> t manage
@@ -158,7 +158,8 @@ hash code are extremely low, so we use this code to identify the blob.</p>
 <p>Git splits this 40 character code into two parts. The first two characters name
 a subdirectory under the data store root directory. The remaining 38 characters
 becomes a new file name for the compressed contents of the file.</p>
-<p>This process loses the file name, so <a class="reference external" href="https://git-scm.com/">Git</a> uses a second primary object called a “tree” to save that information.</p>
+<p>This process loses the file name, so <a class="reference external" href="https://git-scm.com/">Git</a> uses a second primary object called a
+“tree” to save that information.</p>
 <p>A <em>tree</em> is a text file containing a list of other objects and the names of
 those objects.</p>
 <p>Finally, <a class="reference external" href="https://git-scm.com/">Git</a> defines a “commit” object which tracks the author (commiter),

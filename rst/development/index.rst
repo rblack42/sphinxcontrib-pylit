@@ -16,3 +16,5 @@ Development Reference
     tdd-sphinx-extensions
     pylit-directives
     pylit-add-directive
+    tracing-sphinx
+    docutils-nodes

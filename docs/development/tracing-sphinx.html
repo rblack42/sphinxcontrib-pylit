@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Tracing Sphinx Domain Directives &#8212; PyLiT 0.0.2 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinx13.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="DocUtils Nodes" href="docutils-nodes.html" />
+    <link rel="prev" title="PyLiT Directives" href="pylit-add-directive.html" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700'
+          rel='stylesheet' type='text/css' />
+ 
+    <style type="text/css">
+      table.right { float: right; margin-left: 20px; }
+      table.right td { border: 1px solid #ccc; }
+      
+    </style>
+    <script>
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+  </head><body>
+<div class="pageheader">
+  <ul>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../usage/installation.html">Get it</a></li>
+    <li><a href="../contents.html">Docs</a></li>
+    <li><a href="../develop.html">Extend/Develop</a></li>
+  </ul>
+  <div>
+    <a href="../index.html">
+      <img src="../_static/logo.png" alt="PyLiT" />
+    </a>
+  </div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="docutils-nodes.html" title="DocUtils Nodes"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pylit-add-directive.html" title="PyLiT Directives"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">PyLiT home</a>&#160;|</li>
+        <li><a href="../contents.html">Documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Development Reference</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Tracing Sphinx Domain Directives</a></li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../contents.html">
+              <img class="logo" src="../_static/pylit.svg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Tracing Sphinx Domain Directives</a><ul>
+<li><a class="reference internal" href="#sphinx-startup">Sphinx Startup</a></li>
+<li><a class="reference internal" href="#sphinx-domain-api">Sphinx Domain API</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pylit-add-directive.html"
+                        title="previous chapter">PyLiT Directives</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="docutils-nodes.html"
+                        title="next chapter">DocUtils Nodes</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/development/tracing-sphinx.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p>Read time: 3.2 minutes (319 words)</p>
+<div class="section" id="tracing-sphinx-domain-directives">
+<h1>Tracing <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a> Domain Directives<a class="headerlink" href="#tracing-sphinx-domain-directives" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://sphinx-doc.org/">Sphinx</a> domains provide a kind of namespace for a collection of directives that
+extend <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a>. They were designed to support documenting a number of
+languages, but can be used to manage other extensions as well.</p>
+<p>PyLiT will provide a number of directives that control processing of reStructuredText
+blocks. In order to design a domain for this purpose, we need to figure out how
+domains work. That means (unfortunately) spending some time doing that “read
+the code” work and trying to decipher what is going on.</p>
+<p>We begin building a new domain for Sphinx by setting up the basic class. This
+domain will be named <strong>pylit</strong> and will support one <strong>code</strong> directive to get
+started.</p>
+<p>The package we are building is named <strong>sphinxcontrib-pylit</strong>, and can be
+imported using <strong>sphinxcontrib.pylit</strong>. Our starting directory structure is set
+up first:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mkdir -p sphinxcontrib.pylit
+$ touch sphinxcontrib/__init__.py
+$ touch sphinxcontrib/pylit/__init__.py
+</pre></div>
+</div>
+<div class="section" id="sphinx-startup">
+<h2>Sphinx Startup<a class="headerlink" href="#sphinx-startup" title="Permalink to this headline">¶</a></h2>
+<p>When Sphinx first starts an instance of the <strong>Application</strong> class is created. Part
+of that process sets up a <strong>registry</strong> where application data is stored. After
+loading all built-in extensions, the user defined extensions found in the
+configuration file are imported and recorded in the registry.</p>
+<p>The extension loading process first check to see if this extension has already
+been loaded. If not, it tries to import the named extension. If that works, it
+checks to see if a <strong>setup</strong> function exists in the extension and that routine
+is called with the current application instance as a parameter. The <strong>setup</strong>
+function can return a <strong>metadata</strong> dictionary or <strong>None</strong>. Once all of this
+succeeds, the new extension is recorded in <strong>app.extensions</strong> along with all
+other built-in and user extensions. The new entry is an instance of the
+<strong>Extension</strong> class.</p>
+<p>The sequence of calls to perform all of this is as follows:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>application
+    __init__.py -&gt;
+        self.registry =SphinxComponentRegistry()
+        for extension in self.config.extensions:
+            self.setup_extension(extension)
+    setup_extension(extension)
+        self.registry.load_extension(self, extension)
+
+registry
+    load_extension(app, extension)
+        mod = import_module(extension)
+        setup = getattr(mod, &#39;setup&#39;, None)
+        meta = setup(app)
+        app.extensions[extension] = Extension(extension, mod **metadata)
+
+extension object
+    self.name = extension name
+    self.mod the imported module
+    self.metadata
+    self.version if any
+</pre></div>
+</div>
+<p>A simple test of proper extension setup would involve checking that the new
+extension is imported and listed in the app.extensions list.</p>
+</div>
+<div class="section" id="sphinx-domain-api">
+<h2><a class="reference external" href="http://sphinx-doc.org/">Sphinx</a> Domain API<a class="headerlink" href="#sphinx-domain-api" title="Permalink to this headline">¶</a></h2>
+<p>Setting up a basic domain is pretty simple. All we need is a class that
+inherits from the <strong>SphinxDomain</strong> class:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sphinx.domains</span> <span class="kn">import</span> <span class="n">Domain</span>
+
+
+<span class="k">class</span> <span class="nc">PylitDomain</span><span class="p">(</span><span class="n">Domain</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;pylit&#39;</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Literate Programming for Sphinx&#39;</span>
+
+        <span class="n">roles</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;pilitref&#39;</span><span class="p">:</span> <span class="n">XRefRole</span><span class="p">()</span>
+        <span class="p">}</span>
+
+        <span class="n">directives</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="n">Pylitnode</span><span class="p">,</span>
+        <span class="p">}</span>
+
+        <span class="n">indices</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="n">PylitIndex</span><span class="p">,</span>
+        <span class="p">}</span>
+
+        <span class="n">initial_data</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;pylit_blocks&#39;</span><span class="p">:</span> <span class="p">[],</span>
+</pre></div>
+</div>
+<p>In the extension <strong>setup</strong> function, any defined domains are loaded through
+<strong>app.add_domain()</strong> method.</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="docutils-nodes.html" title="DocUtils Nodes"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pylit-add-directive.html" title="PyLiT Directives"
+             >previous</a> |</li>
+        <li><a href="../index.html">PyLiT home</a>&#160;|</li>
+        <li><a href="../contents.html">Documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Development Reference</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Tracing Sphinx Domain Directives</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Roie R. Black and the Sphinx team.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.0.3.
+    </div>
+  </body>
+</html>

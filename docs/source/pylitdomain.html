@@ -126,61 +126,9 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <p>Read time: 0.6 minutes (56 words)</p>
+  <p>Read time: 0.0 minutes (0 words)</p>
 <div class="section" id="module-sphinxcontrib.pylit">
 <span id="sphinxcontrib-pylit"></span><h1>sphinxcontrib.pylit<a class="headerlink" href="#module-sphinxcontrib.pylit" title="Permalink to this headline">¶</a></h1>
-<dl class="py class">
-<dt id="sphinxcontrib.pylit.Pylit">
-<em class="property">class </em><code class="sig-prename descclassname">sphinxcontrib.pylit.</code><code class="sig-name descname">Pylit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">arguments</span></em>, <em class="sig-param"><span class="n">options</span></em>, <em class="sig-param"><span class="n">content</span></em>, <em class="sig-param"><span class="n">lineno</span></em>, <em class="sig-param"><span class="n">content_offset</span></em>, <em class="sig-param"><span class="n">block_text</span></em>, <em class="sig-param"><span class="n">state</span></em>, <em class="sig-param"><span class="n">state_machine</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sphinxcontrib/pylit.html#Pylit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinxcontrib.pylit.Pylit" title="Permalink to this definition">¶</a></dt>
-<dd><p>A pylit entry, displayed (if configured) in the form of an admonition.</p>
-<dl class="py attribute">
-<dt id="sphinxcontrib.pylit.Pylit.node_class">
-<code class="sig-name descname">node_class</code><a class="headerlink" href="#sphinxcontrib.pylit.Pylit.node_class" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <a class="reference internal" href="#sphinxcontrib.pylit.pylit_node" title="sphinxcontrib.pylit.pylit_node"><code class="xref py py-class docutils literal notranslate"><span class="pre">pylit_node</span></code></a></p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="sphinxcontrib.pylit.PylitDomain">
-<em class="property">class </em><code class="sig-prename descclassname">sphinxcontrib.pylit.</code><code class="sig-name descname">PylitDomain</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">env</span><span class="p">:</span> <span class="n">BuildEnvironment</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sphinxcontrib/pylit.html#PylitDomain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinxcontrib.pylit.PylitDomain" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="py method">
-<dt id="sphinxcontrib.pylit.PylitDomain.clear_doc">
-<code class="sig-name descname">clear_doc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">docname</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../_modules/sphinxcontrib/pylit.html#PylitDomain.clear_doc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinxcontrib.pylit.PylitDomain.clear_doc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove traces of a document in the domain-specific inventories.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="sphinxcontrib.pylit.PylitDomain.merge_domaindata">
-<code class="sig-name descname">merge_domaindata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">docnames</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">otherdata</span><span class="p">:</span> <span class="n">Dict</span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../_modules/sphinxcontrib/pylit.html#PylitDomain.merge_domaindata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinxcontrib.pylit.PylitDomain.merge_domaindata" title="Permalink to this definition">¶</a></dt>
-<dd><p>Merge in data regarding <em>docnames</em> from a different domaindata
-inventory (coming from a subprocess in parallel builds).</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="sphinxcontrib.pylit.PylitDomain.process_doc">
-<code class="sig-name descname">process_doc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">env</span><span class="p">:</span> <span class="n">sphinx.environment.BuildEnvironment</span></em>, <em class="sig-param"><span class="n">docname</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">document</span><span class="p">:</span> <span class="n">docutils.nodes.document</span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../_modules/sphinxcontrib/pylit.html#PylitDomain.process_doc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinxcontrib.pylit.PylitDomain.process_doc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Process a document after it is read by the environment.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="sphinxcontrib.pylit.PylitList">
-<em class="property">class </em><code class="sig-prename descclassname">sphinxcontrib.pylit.</code><code class="sig-name descname">PylitList</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">arguments</span></em>, <em class="sig-param"><span class="n">options</span></em>, <em class="sig-param"><span class="n">content</span></em>, <em class="sig-param"><span class="n">lineno</span></em>, <em class="sig-param"><span class="n">content_offset</span></em>, <em class="sig-param"><span class="n">block_text</span></em>, <em class="sig-param"><span class="n">state</span></em>, <em class="sig-param"><span class="n">state_machine</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sphinxcontrib/pylit.html#PylitList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinxcontrib.pylit.PylitList" title="Permalink to this definition">¶</a></dt>
-<dd><p>A list of all pylit entries.</p>
-</dd></dl>
-
-<dl class="py class">
-<dt id="sphinxcontrib.pylit.pylit_node">
-<em class="property">class </em><code class="sig-prename descclassname">sphinxcontrib.pylit.</code><code class="sig-name descname">pylit_node</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rawsource</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">children</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">attributes</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sphinxcontrib/pylit.html#pylit_node"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinxcontrib.pylit.pylit_node" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py class">
-<dt id="sphinxcontrib.pylit.pylitlist">
-<em class="property">class </em><code class="sig-prename descclassname">sphinxcontrib.pylit.</code><code class="sig-name descname">pylitlist</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rawsource</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">children</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">attributes</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sphinxcontrib/pylit.html#pylitlist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinxcontrib.pylit.pylitlist" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 </div>
 
 
