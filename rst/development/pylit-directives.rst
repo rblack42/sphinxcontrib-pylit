@@ -1,10 +1,16 @@
 Testing Pylit Blocks
 ####################
 
-..  pylit::
+..  pylit:code::    python
+    :caption: Hello World
 
-    Block one
+    def main():
+        print("Hello")
 
-..  pylit::
+    if __name__ == '__main__':
+        main)_
+
+
+..  pylit:index::
 
     Block 2
