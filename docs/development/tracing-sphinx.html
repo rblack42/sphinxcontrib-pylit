@@ -200,6 +200,8 @@ extension is imported and listed in the app.extensions list.</p>
 <h2><a class="reference external" href="http://sphinx-doc.org/">Sphinx</a> Domain API<a class="headerlink" href="#sphinx-domain-api" title="Permalink to this headline">¶</a></h2>
 <p>Setting up a basic domain is pretty simple. All we need is a class that
 inherits from the <strong>SphinxDomain</strong> class:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">&lt;&lt;&gt;&gt;==</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sphinx.domains</span> <span class="kn">import</span> <span class="n">Domain</span>
 
 
@@ -222,6 +224,7 @@ inherits from the <strong>SphinxDomain</strong> class:</p>
         <span class="n">initial_data</span> <span class="o">=</span> <span class="p">{</span>
                 <span class="s1">&#39;pylit_blocks&#39;</span><span class="p">:</span> <span class="p">[],</span>
 </pre></div>
+</div>
 </div>
 <p>In the extension <strong>setup</strong> function, any defined domains are loaded through
 <strong>app.add_domain()</strong> method.</p>
