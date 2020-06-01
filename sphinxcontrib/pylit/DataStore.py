@@ -1,12 +1,11 @@
 import hashlib
-import base64
 import os
 import shutil
 
 
 class DataStore(object):
 
-    def __init__(self, rootdir = '.pylit'):
+    def __init__(self, rootdir='.pylit'):
         self.rootdir = rootdir
         if not os.path.isdir(self.rootdir):
             os.makedirs(self.rootdir)
@@ -25,24 +24,23 @@ class DataStore(object):
 
         # write block to repo
         blkdir = blkhash[:2]
-        os.makedirs(os.path.join(self.rootdir,blkdir))
+        os.makedirs(os.path.join(self.rootdir, blkdir))
         blkname = blkhash[2:]
         blkpath = os.path.join(self.rootdir, blkdir, blkname)
         if os.path.isfile(blkpath):
             print("Block already in store: ", tag)
             return
         print("Block stored in ", blkdir, blkname)
-        with open(blkpath,'w') as fout:
+        with open(blkpath, 'w') as fout:
             fout.write(bdata)
 
         # record block tag in catalog
         treeitem = \
-                'tree' + ":" + \
-                blkhash + ":" + \
-                tag + ":" + \
-                docname + ":" + \
-                str(lineno) + "\n"
+            'tree' + ":" + \
+            blkhash + ":" + \
+            tag + ":" + \
+            docname + ":" + \
+            str(lineno) + "\n"
         catalog = os.path.join(self.rootdir, 'catalog')
-        with open(catalog,"a") as c:
+        with open(catalog, "a") as c:
             c.write(treeitem)
-
