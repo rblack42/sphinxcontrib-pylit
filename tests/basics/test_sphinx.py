@@ -1,7 +1,8 @@
 import os
 import pytest
+from importlib import import_module
 
-
+PACKAGE = 'sphinxcontrib.pylit'
 ROOTDIR = 'sphinx-s1'
 
 @pytest.mark.sphinx('html', testroot=ROOTDIR, freshenv=True)
