@@ -11,4 +11,4 @@ class PylitFile(CodeBlock):
         self.options['caption'] = newcaption
 
         # format the block and return
-        return super(PylitCodeBlock, self).run()
+        return super(PylitFile, self).run()
