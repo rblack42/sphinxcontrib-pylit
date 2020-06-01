@@ -13,7 +13,7 @@ class DataStore(object):
 
     def delete(self):
         shutil.rmtree(self.rootdir)
-        
+
     def add_code_block(self, blktype, tag, docname, lineno, content):
         # generate block hash
         nbytes = len(content)
@@ -33,7 +33,7 @@ class DataStore(object):
             return
         print("Block stored in ", blkdir, blkname)
         with open(blkpath,'w') as fout:
-            fout.write(edata)
+            fout.write(bdata)
 
         # record block tag in catalog
         treeitem = \

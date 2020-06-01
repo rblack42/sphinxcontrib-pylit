@@ -1,13 +1,13 @@
 foo
 ===
 
-.. pylit:: pylit in foo
+.. pylit:code:: pylit in foo
 
 .. py:function:: hello()
 
    :param bug: #5800
 
-               .. pylit:: pylit in param field
+               .. pylit:code:: pylit in param field
 
 ..  pylit:add::  pylit in foo
 
