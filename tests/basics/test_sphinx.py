@@ -3,8 +3,19 @@ import pytest
 from importlib import import_module
 
 PACKAGE = 'sphinxcontrib.pylit'
+ROOTDIR = 'sphinx-s1'
 
-ROOTDIR = 'sphinx-s2'
+@pytest.mark.sphinx('html', testroot=ROOTDIR, freshenv=True)
+def test_sphinx_basic_html(app, status, warning):
+    app.builder.build_all()
+
+@pytest.mark.sphinx('latex', testroot=ROOTDIR, freshenv=True)
+def test_sphinx_basic_latex(app, status, warning):
+    app.builder.build_all()
+    texpath = os.path.join(app.outdir, 'test.tex')
+    print("TEXPATH: ", texpath)
+    tex = open(texpath).read()
+    assert 'sphinxcontrib.pylit' in tex
 
 def test_extension_import():
     """verify extension can be imported and has a setup function"""

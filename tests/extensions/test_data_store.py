@@ -2,7 +2,7 @@ import os
 from sphinxcontrib.pylit.DataStore import DataStore
 
 
-def test_rootdir_empty():
+def test_default_rootdir():
     ds = DataStore()
     assert os.path.isdir('.pylit')
     ds.delete()
