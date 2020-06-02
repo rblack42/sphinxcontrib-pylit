@@ -49,7 +49,7 @@ All tests are contained in Python modules with names beginning with **test_**.
 We will place these test files in the **tests** directory. Here is a "sanity**
 check:
 
-..  literalinclude::    ../../tests/test_sanity.py
+..  literalinclude::    ../../tests/basics/test_sanity.py
     :caption: tests/test_sanity.py
 
 In order for this test to pass, we need a simple **iunc** function. We will

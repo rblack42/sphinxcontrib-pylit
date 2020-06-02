@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Testing Pylit Blocks &#8212; PyLiT 0.0.2 documentation</title>
+    <title>Basic Pylit Blocks &#8212; PyLiT 0.0.2 documentation</title>
     <link rel="stylesheet" href="../_static/sphinx13.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -87,7 +87,7 @@
         <li><a href="../contents.html">Documentation</a> &#187;</li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Development Reference</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Testing Pylit Blocks</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Basic Pylit Blocks</a></li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -95,6 +95,14 @@
             <p class="logo"><a href="../contents.html">
               <img class="logo" src="../_static/pylit.svg" alt="Logo"/>
             </a></p>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Basic Pylit Blocks</a><ul>
+<li><a class="reference internal" href="#named-blocks">Named Blocks</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="tdd-sphinx-extensions.html"
                         title="previous chapter"><em>Test Driven Development</em> of Sphinx Extensions</a></p>
@@ -126,9 +134,46 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <p>Read time: 0.0 minutes (0 words)</p>
-<div class="section" id="testing-pylit-blocks">
-<h1>Testing Pylit Blocks<a class="headerlink" href="#testing-pylit-blocks" title="Permalink to this headline">¶</a></h1>
+  <p>Read time: 2.7 minutes (271 words)</p>
+<div class="section" id="basic-pylit-blocks">
+<h1>Basic Pylit Blocks<a class="headerlink" href="#basic-pylit-blocks" title="Permalink to this headline">¶</a></h1>
+<p>PyLiT will start off by discussing the  fundamental <em>Literate Programming</em> block types we will
+need. These types are based on Knuth’ original <em>Literate Programming</em> paper.</p>
+<div class="section" id="named-blocks">
+<h2>Named Blocks<a class="headerlink" href="#named-blocks" title="Permalink to this headline">¶</a></h2>
+<p>A key concept in <em>Literate Programming</em> is that blocks of code should be named in a way that
+helps explain what the block is all about. There are no constraints on this
+name, it can be any human-readable text chosen by the writer to provide a clue
+as to what will be found in the block.</p>
+<p>Once we create a named block, we can insert that block elsewhere in our program
+code by using either the full text of the chosen name, or an abbreviation
+sufficiently long as to uniquely identify the named block we wish to insert.
+The point of insertion will appear in another block, set up by special markers
+to distinguish this name from the surrounding code. In this version of PyLiT
+insertion points will be marked using line comment markers, followed by the
+block name enclosed in special markers to avoid possible conflicts with other
+comments found in the code.</p>
+<p>Basic named code blocks will be identified using a simple <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a> directive.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>pylit:code</strong> - start a named code block list.</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>PyLiT will use a <a class="reference external" href="http://sphinx-doc.org/">SPhinx</a> <strong>Domain</strong> to group directives and avoid
+conflicts with other possible directives in use in a given document.</p>
+</div>
+<p>To make reusing existing components in <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a> simpler, we will extend the
+existing <strong>CodeBlock</strong> directive for our first block. The block name will be
+provided using the optional <strong>caption</strong> parameter provided with this
+directive.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>add</strong> - add a block to an existing named block list.</p></li>
+</ul>
+</div></blockquote>
+<p>In Knuth’s paper, code was written to files for processing by an extraction tool. The name of the file</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">&lt;&lt;Hello World&gt;&gt;==</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
@@ -141,6 +186,7 @@
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Block</span> <span class="mi">2</span>
 </pre></div>
+</div>
 </div>
 </div>
 
@@ -170,7 +216,7 @@
         <li><a href="../contents.html">Documentation</a> &#187;</li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Development Reference</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Testing Pylit Blocks</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Basic Pylit Blocks</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

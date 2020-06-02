@@ -29,7 +29,7 @@ Basic named code blocks will be identified using a simple Sphinx_ directive.
 ..  note::
 
     |pylit| will use a SPhinx_ **Domain** to group directives and avoid
-   conflicts with other possible directives in use in a given document.
+    conflicts with other possible directives in use in a given document.
 
 To make reusing existing components in Sphinx_ simpler, we will extend the
 existing **CodeBlock** directive for our first block. The block name will be
@@ -39,6 +39,7 @@ directive.
     * **add** - add a block to an existing named block list.
 
 In Knuth's paper, code was written to files for processing by an extraction tool. The name of the file
+
 ..  pylit:code::    python
     :caption: Hello World
 
