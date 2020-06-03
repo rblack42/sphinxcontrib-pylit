@@ -1,3 +1,11 @@
+* 2020-06-02: Start of work on timeline
+* 2020-06-02: working on timeline docs
+* 2020-06-01: fixing basic tests
+* 2020-06-01: organizing tests
+* 2020-06-01: grouping tests
+* 2020-06-01: flake8 cleanup
+* 2020-06-01: documenting Pylit domain directives
+* 2020-06-01: working on data store
 * 2020-05-31: working on pylit data store
 * 2020-05-31: working on code and tikz
 * 2020-05-30: conflict resolution
