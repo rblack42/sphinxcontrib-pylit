@@ -33,7 +33,7 @@ will be used by Git_ to track work done on the files living in this directory.
 Timelines
 *********
 
-Development happens over time. A developer sits down at a workstation and
+Development happens over time. Our lone developer sits down at a workstation and
 creates something related to the project. That something may be source code, or
 it may be documentation. At the end of that session, the changes to the code
 must be recorded. This is easy with Git_.
@@ -48,7 +48,7 @@ The developer can run:
 	$ git status
 
 What will be displayed is a list of all files changed by the work session. That
-will include new files created, files deleted, and files modified
+list will include new files created, files deleted, and files modified
 
 Staging Changes
 ===============
@@ -81,7 +81,6 @@ know what makes up the new, current, version of the code base. It will mark the
 new version using a hash tag, and record the current time and who made this
 commit.
 
-All of this happens at some moment in time, and the commit marks that moment.
 If we are unhappy with this new version, we could "back-up" to a previous point
 in time, to a previous commit, and restore our working copy to the state it was
 in back then. This is a powerful tool for fixing silly work that never should
@@ -90,15 +89,36 @@ have been there in the first place.
 Pushing Changes
 ===============
 
-There is a final step, that is really optional at this point.
+There is a final step, that is really optional for a lone developer, or a
+developer working offline.
 
 If the developer has a "master copy" of the code base, living on a server like
-Github_, the new version created by a commit should be "pushed" to that
-server.
+Github_, the new version created by a commit should be "pushed" to that server.
+The connection between the developers local working copy of the project code
+and the server's "master copy" is managed by this command:
+
+..  code-block:: shell
+
+    $ git remote add origin https://github.com/rblack42/sphnxcontrib-pylit
+
+This command notifies the local version of Git_ that the master copy is stored
+on the Github_ server under the user and project identified above. (You must
+have write permissions to do this, and the repository must exist on the server
+before we can send anything to that server.
+
+Now, we can "push" changes to the server:
+
 
 ..	code-block::	shell
 
-	$ git push origin master
+	$ git push -u origin master
+
+..  warning::
+
+    We only prodive the **-u** option on the first push to the server. This
+    notifies the server to track changes we make to our code. Leave that option
+    off on all other "push" operations.
+
 
 This command is confusing to beginners. The "origin" is an alias for the remote
 server, Github_ in this case. The "master" refers to the developer's working
@@ -211,6 +231,35 @@ Managing the Timeline
 |LP| seems to assume that the product being documented is the final version of
 some piece of software. That may have been Knuth's intent, but the goal of
 |pylit| is to document the software and the process that led to that final
-version. Of course,, to paraphrase da Vinci, "Software is never really
+version. Of course, to paraphrase da Vinci, "Software is never really
 finished, only abandoned!" :cite:`DaVinci:2020`
+
+|pylit| must provide a way to create a timeline in addition to software. This
+will seem odd to developers who use Git_ daily, but it is essential in a
+teaching environment. As a teacher, I start off writing small snippets of code,
+then add features to that code as we discuss various aspects of programming and
+development. Some of these versions are destined to be thrown away, but are
+needed when I generate the documentation for a website of a PDf file. Git_
+could do that directly, but I use Git_ to manage my lecture notes and switching
+to previous commits in the middle of a Sphinx_ run is not practical!
+
+Therefore |pylit| will create its own repository and use that as needed to
+generate lecture notes. We will need to enhance |LP| to provide this
+capability.
+
+Since we are not interested in supporting everything Git_ has to offer, we will
+focus on the primary tools needed:
+
+    * add - save changes in a staging area
+
+    * commit - create a commit record for a particular version
+
+    * checkout - return to a previous commit
+
+    * tag - mark a commit with a human readable name.
+
+Each of these commands will become directives in the |pylit| domain we will
+build for Sphinx_. The commands will not work exactly like the real Git_
+commands, but what they do should be familiar.
+
 

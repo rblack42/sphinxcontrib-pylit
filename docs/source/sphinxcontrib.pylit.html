@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>sphinxcontrib.pylit package &#8212; PyLiT 0.0.2 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinx13.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Changes in Sphinx" href="../changes.html" />
+    <link rel="prev" title="sphinxcontrib package" href="sphinxcontrib.html" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700'
+          rel='stylesheet' type='text/css' />
+ 
+    <style type="text/css">
+      table.right { float: right; margin-left: 20px; }
+      table.right td { border: 1px solid #ccc; }
+      
+    </style>
+    <script>
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+  </head><body>
+<div class="pageheader">
+  <ul>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../usage/installation.html">Get it</a></li>
+    <li><a href="../contents.html">Docs</a></li>
+    <li><a href="../develop.html">Extend/Develop</a></li>
+  </ul>
+  <div>
+    <a href="../index.html">
+      <img src="../_static/logo.png" alt="PyLiT" />
+    </a>
+  </div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../changes.html" title="Changes in Sphinx"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="sphinxcontrib.html" title="sphinxcontrib package"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">PyLiT home</a>&#160;|</li>
+        <li><a href="../contents.html">Documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="modules.html" >sphinxcontrib</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="sphinxcontrib.html" accesskey="U">sphinxcontrib package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">sphinxcontrib.pylit package</a></li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../contents.html">
+              <img class="logo" src="../_static/pylit.svg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">sphinxcontrib.pylit package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-sphinxcontrib.pylit.DataStore">sphinxcontrib.pylit.DataStore module</a></li>
+<li><a class="reference internal" href="#module-sphinxcontrib.pylit.Pylit">sphinxcontrib.pylit.Pylit module</a></li>
+<li><a class="reference internal" href="#module-sphinxcontrib.pylit.PylitCodeBlock">sphinxcontrib.pylit.PylitCodeBlock module</a></li>
+<li><a class="reference internal" href="#module-sphinxcontrib.pylit.PylitFile">sphinxcontrib.pylit.PylitFile module</a></li>
+<li><a class="reference internal" href="#module-sphinxcontrib.pylit.PylitIndex">sphinxcontrib.pylit.PylitIndex module</a></li>
+<li><a class="reference internal" href="#module-sphinxcontrib.pylit.cli">sphinxcontrib.pylit.cli module</a></li>
+<li><a class="reference internal" href="#module-sphinxcontrib.pylit.meta">sphinxcontrib.pylit.meta module</a></li>
+<li><a class="reference internal" href="#module-sphinxcontrib.pylit.utils">sphinxcontrib.pylit.utils module</a></li>
+<li><a class="reference internal" href="#module-sphinxcontrib.pylit">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="sphinxcontrib.html"
+                        title="previous chapter">sphinxcontrib package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../changes.html"
+                        title="next chapter">Changes in Sphinx</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/source/sphinxcontrib.pylit.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p>Read time: 0.2 minutes (19 words)</p>
+<div class="section" id="sphinxcontrib-pylit-package">
+<h1>sphinxcontrib.pylit package<a class="headerlink" href="#sphinxcontrib-pylit-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-sphinxcontrib.pylit.DataStore">
+<span id="sphinxcontrib-pylit-datastore-module"></span><h2>sphinxcontrib.pylit.DataStore module<a class="headerlink" href="#module-sphinxcontrib.pylit.DataStore" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="sphinxcontrib.pylit.DataStore.DataStore">
+<em class="property">class </em><code class="sig-prename descclassname">sphinxcontrib.pylit.DataStore.</code><code class="sig-name descname">DataStore</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rootdir</span><span class="o">=</span><span class="default_value">'.pylit'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sphinxcontrib/pylit/DataStore.html#DataStore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinxcontrib.pylit.DataStore.DataStore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="sphinxcontrib.pylit.DataStore.DataStore.add_code_block">
+<code class="sig-name descname">add_code_block</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">blktype</span></em>, <em class="sig-param"><span class="n">tag</span></em>, <em class="sig-param"><span class="n">docname</span></em>, <em class="sig-param"><span class="n">lineno</span></em>, <em class="sig-param"><span class="n">content</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sphinxcontrib/pylit/DataStore.html#DataStore.add_code_block"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinxcontrib.pylit.DataStore.DataStore.add_code_block" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="sphinxcontrib.pylit.DataStore.DataStore.delete">
+<code class="sig-name descname">delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sphinxcontrib/pylit/DataStore.html#DataStore.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinxcontrib.pylit.DataStore.DataStore.delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-sphinxcontrib.pylit.Pylit">
+<span id="sphinxcontrib-pylit-pylit-module"></span><h2>sphinxcontrib.pylit.Pylit module<a class="headerlink" href="#module-sphinxcontrib.pylit.Pylit" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="sphinxcontrib.pylit.Pylit.PylitDomain">
+<em class="property">class </em><code class="sig-prename descclassname">sphinxcontrib.pylit.Pylit.</code><code class="sig-name descname">PylitDomain</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">env</span><span class="p">:</span> <span class="n">BuildEnvironment</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sphinxcontrib/pylit/Pylit.html#PylitDomain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinxcontrib.pylit.Pylit.PylitDomain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sphinx.domains.Domain</span></code></p>
+<dl class="py attribute">
+<dt id="sphinxcontrib.pylit.Pylit.PylitDomain.directives">
+<code class="sig-name descname">directives</code><em class="property"> = {'code': &lt;class 'sphinxcontrib.pylit.PylitCodeBlock.PylitCodeBlock'&gt;, 'index': &lt;class 'sphinxcontrib.pylit.PylitIndex.PylitIndex'&gt;}</em><a class="headerlink" href="#sphinxcontrib.pylit.Pylit.PylitDomain.directives" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sphinxcontrib.pylit.Pylit.PylitDomain.initial_data">
+<code class="sig-name descname">initial_data</code><em class="property"> = {'blocks': []}</em><a class="headerlink" href="#sphinxcontrib.pylit.Pylit.PylitDomain.initial_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sphinxcontrib.pylit.Pylit.PylitDomain.label">
+<code class="sig-name descname">label</code><em class="property"> = 'PyLiT: LP for Sphinx'</em><a class="headerlink" href="#sphinxcontrib.pylit.Pylit.PylitDomain.label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sphinxcontrib.pylit.Pylit.PylitDomain.name">
+<code class="sig-name descname">name</code><em class="property"> = 'pylit'</em><a class="headerlink" href="#sphinxcontrib.pylit.Pylit.PylitDomain.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sphinxcontrib.pylit.Pylit.PylitDomain.roles">
+<code class="sig-name descname">roles</code><em class="property"> = {'lpref': &lt;sphinx.roles.XRefRole object&gt;}</em><a class="headerlink" href="#sphinxcontrib.pylit.Pylit.PylitDomain.roles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="sphinxcontrib.pylit.Pylit.setup">
+<code class="sig-prename descclassname">sphinxcontrib.pylit.Pylit.</code><code class="sig-name descname">setup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">app</span><span class="p">:</span> <span class="n">sphinx.application.Sphinx</span></em><span class="sig-paren">)</span> &#x2192; Dict<span class="p">[</span>str<span class="p">, </span>Any<span class="p">]</span><a class="reference internal" href="../_modules/sphinxcontrib/pylit/Pylit.html#setup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinxcontrib.pylit.Pylit.setup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-sphinxcontrib.pylit.PylitCodeBlock">
+<span id="sphinxcontrib-pylit-pylitcodeblock-module"></span><h2>sphinxcontrib.pylit.PylitCodeBlock module<a class="headerlink" href="#module-sphinxcontrib.pylit.PylitCodeBlock" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="sphinxcontrib.pylit.PylitCodeBlock.PylitCodeBlock">
+<em class="property">class </em><code class="sig-prename descclassname">sphinxcontrib.pylit.PylitCodeBlock.</code><code class="sig-name descname">PylitCodeBlock</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">arguments</span></em>, <em class="sig-param"><span class="n">options</span></em>, <em class="sig-param"><span class="n">content</span></em>, <em class="sig-param"><span class="n">lineno</span></em>, <em class="sig-param"><span class="n">content_offset</span></em>, <em class="sig-param"><span class="n">block_text</span></em>, <em class="sig-param"><span class="n">state</span></em>, <em class="sig-param"><span class="n">state_machine</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sphinxcontrib/pylit/PylitCodeBlock.html#PylitCodeBlock"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinxcontrib.pylit.PylitCodeBlock.PylitCodeBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sphinx.directives.code.CodeBlock</span></code></p>
+<dl class="py method">
+<dt id="sphinxcontrib.pylit.PylitCodeBlock.PylitCodeBlock.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sphinxcontrib/pylit/PylitCodeBlock.html#PylitCodeBlock.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinxcontrib.pylit.PylitCodeBlock.PylitCodeBlock.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-sphinxcontrib.pylit.PylitFile">
+<span id="sphinxcontrib-pylit-pylitfile-module"></span><h2>sphinxcontrib.pylit.PylitFile module<a class="headerlink" href="#module-sphinxcontrib.pylit.PylitFile" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="sphinxcontrib.pylit.PylitFile.PylitFile">
+<em class="property">class </em><code class="sig-prename descclassname">sphinxcontrib.pylit.PylitFile.</code><code class="sig-name descname">PylitFile</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">arguments</span></em>, <em class="sig-param"><span class="n">options</span></em>, <em class="sig-param"><span class="n">content</span></em>, <em class="sig-param"><span class="n">lineno</span></em>, <em class="sig-param"><span class="n">content_offset</span></em>, <em class="sig-param"><span class="n">block_text</span></em>, <em class="sig-param"><span class="n">state</span></em>, <em class="sig-param"><span class="n">state_machine</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sphinxcontrib/pylit/PylitFile.html#PylitFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinxcontrib.pylit.PylitFile.PylitFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sphinx.directives.code.CodeBlock</span></code></p>
+<dl class="py method">
+<dt id="sphinxcontrib.pylit.PylitFile.PylitFile.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sphinxcontrib/pylit/PylitFile.html#PylitFile.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinxcontrib.pylit.PylitFile.PylitFile.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-sphinxcontrib.pylit.PylitIndex">
+<span id="sphinxcontrib-pylit-pylitindex-module"></span><h2>sphinxcontrib.pylit.PylitIndex module<a class="headerlink" href="#module-sphinxcontrib.pylit.PylitIndex" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="sphinxcontrib.pylit.PylitIndex.PylitIndex">
+<em class="property">class </em><code class="sig-prename descclassname">sphinxcontrib.pylit.PylitIndex.</code><code class="sig-name descname">PylitIndex</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">arguments</span></em>, <em class="sig-param"><span class="n">options</span></em>, <em class="sig-param"><span class="n">content</span></em>, <em class="sig-param"><span class="n">lineno</span></em>, <em class="sig-param"><span class="n">content_offset</span></em>, <em class="sig-param"><span class="n">block_text</span></em>, <em class="sig-param"><span class="n">state</span></em>, <em class="sig-param"><span class="n">state_machine</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sphinxcontrib/pylit/PylitIndex.html#PylitIndex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinxcontrib.pylit.PylitIndex.PylitIndex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sphinx.directives.code.CodeBlock</span></code></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-sphinxcontrib.pylit.cli">
+<span id="sphinxcontrib-pylit-cli-module"></span><h2>sphinxcontrib.pylit.cli module<a class="headerlink" href="#module-sphinxcontrib.pylit.cli" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="sphinxcontrib.pylit.cli.ExampleClass">
+<em class="property">class </em><code class="sig-prename descclassname">sphinxcontrib.pylit.cli.</code><code class="sig-name descname">ExampleClass</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sphinxcontrib/pylit/cli.html#ExampleClass"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinxcontrib.pylit.cli.ExampleClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An example docstring for a class definition.</p>
+<dl class="py method">
+<dt id="sphinxcontrib.pylit.cli.ExampleClass.about_self">
+<code class="sig-name descname">about_self</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sphinxcontrib/pylit/cli.html#ExampleClass.about_self"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinxcontrib.pylit.cli.ExampleClass.about_self" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="sphinxcontrib.pylit.cli.about_me">
+<code class="sig-prename descclassname">sphinxcontrib.pylit.cli.</code><code class="sig-name descname">about_me</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">your_name</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sphinxcontrib/pylit/cli.html#about_me"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinxcontrib.pylit.cli.about_me" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-sphinxcontrib.pylit.meta">
+<span id="sphinxcontrib-pylit-meta-module"></span><h2>sphinxcontrib.pylit.meta module<a class="headerlink" href="#module-sphinxcontrib.pylit.meta" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-sphinxcontrib.pylit.utils">
+<span id="sphinxcontrib-pylit-utils-module"></span><h2>sphinxcontrib.pylit.utils module<a class="headerlink" href="#module-sphinxcontrib.pylit.utils" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="sphinxcontrib.pylit.utils.decr">
+<code class="sig-prename descclassname">sphinxcontrib.pylit.utils.</code><code class="sig-name descname">decr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sphinxcontrib/pylit/utils.html#decr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinxcontrib.pylit.utils.decr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="sphinxcontrib.pylit.utils.incr">
+<code class="sig-prename descclassname">sphinxcontrib.pylit.utils.</code><code class="sig-name descname">incr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sphinxcontrib/pylit/utils.html#incr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinxcontrib.pylit.utils.incr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-sphinxcontrib.pylit">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-sphinxcontrib.pylit" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../changes.html" title="Changes in Sphinx"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="sphinxcontrib.html" title="sphinxcontrib package"
+             >previous</a> |</li>
+        <li><a href="../index.html">PyLiT home</a>&#160;|</li>
+        <li><a href="../contents.html">Documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="modules.html" >sphinxcontrib</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="sphinxcontrib.html" >sphinxcontrib package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">sphinxcontrib.pylit package</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Roie R. Black and the Sphinx team.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.0.3.
+    </div>
+  </body>
+</html>

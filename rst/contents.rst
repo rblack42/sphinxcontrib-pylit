@@ -9,7 +9,7 @@
 
     usage/index
     development/index
-    source/index
+    source/modules
 
     changes
     authors
