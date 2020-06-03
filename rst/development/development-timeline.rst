@@ -2,7 +2,7 @@ Development Workflows
 #####################
 
 Real-World projects are not managed by one developer, except in those cases
-where that developer is working alone on some pet project (like me!) MOst
+where that developer is working alone on some pet project (like me!) Most
 projects are team efforts, meaning many developers are working on the same code
 base at the same time. This could lead to chaos, if the code base is not being
 managed somehow.
@@ -12,6 +12,15 @@ needed, but do not impose a management methodology on the team. Instead, each
 team adopts some approach to dealing with merging work done by each developer
 into the "master" copy of the code base. 
 
+Master Copy
+***********
+
+In a team setting, each developer will be working on some part of the code. It
+certainly is possible to have two developers are working on the same chunk of code
+at the same time. If so, how do we combine their work and produce one stable
+version of the code?
+
+Git_ approaches this issue by using a "merge" 
 Let's start off with a single developer creating a project and talk about the
 changes made to the code base.
 
