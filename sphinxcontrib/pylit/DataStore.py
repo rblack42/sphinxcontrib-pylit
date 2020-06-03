@@ -24,7 +24,7 @@ class DataStore(object):
 
         # write block to repo
         blkdir = blkhash[:2]
-        os.makedirs(os.path.join(self.rootdir, blkdir))
+        os.makedirs(os.path.join(self.rootdir, blkdir), exist_ok=True)
         blkname = blkhash[2:]
         blkpath = os.path.join(self.rootdir, blkdir, blkname)
         if os.path.isfile(blkpath):

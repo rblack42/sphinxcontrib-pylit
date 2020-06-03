@@ -10,12 +10,12 @@ Development Reference
     dry
     style
     project-setup
-    testing-setup
-    advanced-pytesting
-    tdd-sphinx-extensions
-    pylit-directives
-    pylit-add-directive
-    tracing-sphinx
-    docutils-nodes
-    data-store
-    development-timeline
+    timeline/development-timeline
+    testing/tdd-sphinx-extensions
+    testing/testing-setup
+    testing/advanced-pytesting
+    pylit/pylit-directives
+    pylit/pylit-add-directive
+    sphinx/tracing-sphinx
+    sphinx/docutils-nodes
+    data-store/data-store

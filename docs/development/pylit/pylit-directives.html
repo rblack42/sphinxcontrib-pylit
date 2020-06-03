@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Basic Pylit Blocks &#8212; PyLiT 0.0.2 documentation</title>
+    <link rel="stylesheet" href="../../_static/sphinx13.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="PyLiT Directives" href="pylit-add-directive.html" />
+    <link rel="prev" title="Advanced PyTesting" href="../testing/advanced-pytesting.html" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700'
+          rel='stylesheet' type='text/css' />
+ 
+    <style type="text/css">
+      table.right { float: right; margin-left: 20px; }
+      table.right td { border: 1px solid #ccc; }
+      
+    </style>
+    <script>
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+  </head><body>
+<div class="pageheader">
+  <ul>
+    <li><a href="../../index.html">Home</a></li>
+    <li><a href="../../usage/installation.html">Get it</a></li>
+    <li><a href="../../contents.html">Docs</a></li>
+    <li><a href="../../develop.html">Extend/Develop</a></li>
+  </ul>
+  <div>
+    <a href="../../index.html">
+      <img src="../../_static/logo.png" alt="PyLiT" />
+    </a>
+  </div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pylit-add-directive.html" title="PyLiT Directives"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../testing/advanced-pytesting.html" title="Advanced PyTesting"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">PyLiT home</a>&#160;|</li>
+        <li><a href="../../contents.html">Documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Development Reference</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Basic Pylit Blocks</a></li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../contents.html">
+              <img class="logo" src="../../_static/pylit.svg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Basic Pylit Blocks</a><ul>
+<li><a class="reference internal" href="#named-blocks">Named Blocks</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../testing/advanced-pytesting.html"
+                        title="previous chapter">Advanced PyTesting</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pylit-add-directive.html"
+                        title="next chapter">PyLiT Directives</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/development/pylit/pylit-directives.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p>Read time: 2.7 minutes (271 words)</p>
+<div class="section" id="basic-pylit-blocks">
+<h1>Basic Pylit Blocks<a class="headerlink" href="#basic-pylit-blocks" title="Permalink to this headline">¶</a></h1>
+<p>PyLiT will start off by discussing the  fundamental <em>Literate Programming</em> block types we will
+need. These types are based on Knuth’ original <em>Literate Programming</em> paper.</p>
+<div class="section" id="named-blocks">
+<h2>Named Blocks<a class="headerlink" href="#named-blocks" title="Permalink to this headline">¶</a></h2>
+<p>A key concept in <em>Literate Programming</em> is that blocks of code should be named in a way that
+helps explain what the block is all about. There are no constraints on this
+name, it can be any human-readable text chosen by the writer to provide a clue
+as to what will be found in the block.</p>
+<p>Once we create a named block, we can insert that block elsewhere in our program
+code by using either the full text of the chosen name, or an abbreviation
+sufficiently long as to uniquely identify the named block we wish to insert.
+The point of insertion will appear in another block, set up by special markers
+to distinguish this name from the surrounding code. In this version of PyLiT
+insertion points will be marked using line comment markers, followed by the
+block name enclosed in special markers to avoid possible conflicts with other
+comments found in the code.</p>
+<p>Basic named code blocks will be identified using a simple <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a> directive.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>pylit:code</strong> - start a named code block list.</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>PyLiT will use a <a class="reference external" href="http://sphinx-doc.org/">SPhinx</a> <strong>Domain</strong> to group directives and avoid
+conflicts with other possible directives in use in a given document.</p>
+</div>
+<p>To make reusing existing components in <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a> simpler, we will extend the
+existing <strong>CodeBlock</strong> directive for our first block. The block name will be
+provided using the optional <strong>caption</strong> parameter provided with this
+directive.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>add</strong> - add a block to an existing named block list.</p></li>
+</ul>
+</div></blockquote>
+<p>In Knuth’s paper, code was written to files for processing by an extraction tool. The name of the file</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">&lt;&lt;Hello World&gt;&gt;==</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">)</span><span class="n">_</span>
+</pre></div>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Block</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pylit-add-directive.html" title="PyLiT Directives"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../testing/advanced-pytesting.html" title="Advanced PyTesting"
+             >previous</a> |</li>
+        <li><a href="../../index.html">PyLiT home</a>&#160;|</li>
+        <li><a href="../../contents.html">Documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="../index.html" >Development Reference</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Basic Pylit Blocks</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Roie R. Black and the Sphinx team.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.0.3.
+    </div>
+  </body>
+</html>

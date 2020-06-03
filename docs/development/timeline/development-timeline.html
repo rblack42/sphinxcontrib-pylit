@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Development Workflows &#8212; PyLiT 0.0.2 documentation</title>
+    <link rel="stylesheet" href="../../_static/sphinx13.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Test Driven Development of Sphinx Extensions" href="../testing/tdd-sphinx-extensions.html" />
+    <link rel="prev" title="Project Setup" href="../project-setup.html" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700'
+          rel='stylesheet' type='text/css' />
+ 
+    <style type="text/css">
+      table.right { float: right; margin-left: 20px; }
+      table.right td { border: 1px solid #ccc; }
+      
+    </style>
+    <script>
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+  </head><body>
+<div class="pageheader">
+  <ul>
+    <li><a href="../../index.html">Home</a></li>
+    <li><a href="../../usage/installation.html">Get it</a></li>
+    <li><a href="../../contents.html">Docs</a></li>
+    <li><a href="../../develop.html">Extend/Develop</a></li>
+  </ul>
+  <div>
+    <a href="../../index.html">
+      <img src="../../_static/logo.png" alt="PyLiT" />
+    </a>
+  </div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../testing/tdd-sphinx-extensions.html" title="Test Driven Development of Sphinx Extensions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../project-setup.html" title="Project Setup"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">PyLiT home</a>&#160;|</li>
+        <li><a href="../../contents.html">Documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Development Reference</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Development Workflows</a></li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../contents.html">
+              <img class="logo" src="../../_static/pylit.svg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Development Workflows</a><ul>
+<li><a class="reference internal" href="#project-setup">Project Setup</a></li>
+<li><a class="reference internal" href="#timelines">Timelines</a><ul>
+<li><a class="reference internal" href="#what-changed">What Changed?</a></li>
+<li><a class="reference internal" href="#staging-changes">Staging Changes</a></li>
+<li><a class="reference internal" href="#commit-changes">Commit Changes</a></li>
+<li><a class="reference internal" href="#pushing-changes">Pushing Changes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#branches">Branches</a><ul>
+<li><a class="reference internal" href="#merging">Merging</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#viewing-the-history">Viewing the History</a></li>
+<li><a class="reference internal" href="#lp-and-timelines"><em>Literate Programming</em> and Timelines</a><ul>
+<li><a class="reference internal" href="#editing">Editing</a></li>
+<li><a class="reference internal" href="#managing-the-timeline">Managing the Timeline</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../project-setup.html"
+                        title="previous chapter">Project Setup</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../testing/tdd-sphinx-extensions.html"
+                        title="next chapter"><em>Test Driven Development</em> of Sphinx Extensions</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/development/timeline/development-timeline.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p>Read time: 12.5 minutes (1248 words)</p>
+<div class="section" id="development-workflows">
+<h1>Development Workflows<a class="headerlink" href="#development-workflows" title="Permalink to this headline">¶</a></h1>
+<p>Real-World projects are not managed by one developer, except in those cases
+where that developer is working alone on some pet project (like me!) Most
+projects are team efforts, meaning many developers are working on the same code
+base at the same time. This could lead to chaos, if the code base is not being
+managed somehow.</p>
+<p>Modern source code management tools like <a class="reference external" href="https://git-scm.com/">Git</a> provide the management tools
+needed, but do not impose a management methodology on the team. Instead, each
+team adopts some approach to dealing with merging work done by each developer
+into the “master” copy of the code base.</p>
+<p>Let’s start off with a single developer creating a project and talk about the
+changes made to the code base.</p>
+<div class="section" id="project-setup">
+<h2>Project Setup<a class="headerlink" href="#project-setup" title="Permalink to this headline">¶</a></h2>
+<p>Development always begins (or it should) with setting up a work area and
+creating a <a class="reference external" href="https://git-scm.com/">Git</a> repository to manage the work:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mkdir new-project
+$ <span class="nb">cd</span> new-project
+$ git init
+</pre></div>
+</div>
+<p>At this point, we have an empty workspace, and a hidden <strong>.git</strong> directory that
+will be used by <a class="reference external" href="https://git-scm.com/">Git</a> to track work done on the files living in this directory.</p>
+</div>
+<div class="section" id="timelines">
+<h2>Timelines<a class="headerlink" href="#timelines" title="Permalink to this headline">¶</a></h2>
+<p>Development happens over time. A developer sits down at a workstation and
+creates something related to the project. That something may be source code, or
+it may be documentation. At the end of that session, the changes to the code
+must be recorded. This is easy with <a class="reference external" href="https://git-scm.com/">Git</a>.</p>
+<div class="section" id="what-changed">
+<h3>What Changed?<a class="headerlink" href="#what-changed" title="Permalink to this headline">¶</a></h3>
+<p>The developer can run:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git status
+</pre></div>
+</div>
+<p>What will be displayed is a list of all files changed by the work session. That
+will include new files created, files deleted, and files modified</p>
+</div>
+<div class="section" id="staging-changes">
+<h3>Staging Changes<a class="headerlink" href="#staging-changes" title="Permalink to this headline">¶</a></h3>
+<p>Next, the developer “stages” those changes by doing this:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git add .
+</pre></div>
+</div>
+<p>The dot at the end of that command tells <a class="reference external" href="https://git-scm.com/">Git</a> to include all changes found in
+the project to the staging area. In effect, this command sets up a new version
+of the code base. The old version is not modified in any way, only the changes
+are in the staging area now.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can control what gets added to the staging area by specifying files to
+be staged instead of using the dot in the obove command.</p>
+</div>
+</div>
+<div class="section" id="commit-changes">
+<h3>Commit Changes<a class="headerlink" href="#commit-changes" title="Permalink to this headline">¶</a></h3>
+<p>This is the big step. We now decide to create anew version of the code base,
+incorporating all of the modifications present in the staging area. <a class="reference external" href="https://git-scm.com/">Git</a> will
+record new versions of all new or modified files, and delete references to
+deleted files from its bookkeeping records. When the smoke clears, <a class="reference external" href="https://git-scm.com/">Git</a> will
+know what makes up the new, current, version of the code base. It will mark the
+new version using a hash tag, and record the current time and who made this
+commit.</p>
+<p>All of this happens at some moment in time, and the commit marks that moment.
+If we are unhappy with this new version, we could “back-up” to a previous point
+in time, to a previous commit, and restore our working copy to the state it was
+in back then. This is a powerful tool for fixing silly work that never should
+have been there in the first place.</p>
+</div>
+<div class="section" id="pushing-changes">
+<h3>Pushing Changes<a class="headerlink" href="#pushing-changes" title="Permalink to this headline">¶</a></h3>
+<p>There is a final step, that is really optional at this point.</p>
+<p>If the developer has a “master copy” of the code base, living on a server like
+<a class="reference external" href="https://github.com/">Github</a>, the new version created by a commit should be “pushed” to that
+server.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git push origin master
+</pre></div>
+</div>
+<p>This command is confusing to beginners. The “origin” is an alias for the remote
+server, <a class="reference external" href="https://github.com/">Github</a> in this case. The “master” refers to the developer’s working
+copy of the project code.</p>
+</div>
+</div>
+<div class="section" id="branches">
+<h2>Branches<a class="headerlink" href="#branches" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://git-scm.com/">Git</a> makes it easy to create a <em>branch</em> in the development timeline. For a
+single developer, a branch represents the start of work on an idea that may, or
+may not, make its way into the code base at some point. The assumption is that
+the main code base is in good shape, and we do not want our experiment to mess
+that up. If we like the results of our experiment, eventually we will “merge”
+that work into the main code base. If we do not like the results of our
+experiment, we can simply stop work on that branch and try something else. The
+abandoned work could be thrown out, or just left sitting there for future
+reference.</p>
+<p>Using branches may seem like an unnecessary thing to the lone developer, but in
+a team setting it is a powerful tool. It also causes problems in managing that
+“merge” moment.</p>
+<div class="section" id="merging">
+<h3>Merging<a class="headerlink" href="#merging" title="Permalink to this headline">¶</a></h3>
+<p>The idea of the merge seems simple enough. All we want to do is record our branch
+code back in the main code. However, that main code may have been modified by
+someone while we were working on our branch. When we try to merge there might
+be different versions of the same file in the proposed new code base. This is
+called a “conflict”. <a class="reference external" href="https://git-scm.com/">Git</a> will not try to deal with this problem. Since humans
+caused the problem, humans can fix the problem!</p>
+<p>Exactly who does the conflict resolution and how is something that leads to
+different management styles for different teams. Usually, some lead developer
+will be assigned the responsibility for sorting out the mess and making things
+smooth again!</p>
+<p>Martin Fowler has a nice article on this issues available here:
+<a class="bibtex reference internal" href="../../zbibliography.html#fowler-2020" id="id1">[fow0)]</a></p>
+</div>
+</div>
+<div class="section" id="viewing-the-history">
+<h2>Viewing the History<a class="headerlink" href="#viewing-the-history" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://git-scm.com/">Git</a> provides several ways to view the timeline of a project. The easiest to
+use is just this:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git log
+</pre></div>
+</div>
+<p>This will display every commit made on the current branch along with the
+message recorded on that commit and who made the change to the code base. This
+is not the nicest view of the timeline, though.</p>
+<p>Try this instead:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git log --graph --oneline --decorate
+</pre></div>
+</div>
+<p>This is more useful when you want a view of the timeline itself.</p>
+</div>
+<div class="section" id="lp-and-timelines">
+<h2><em>Literate Programming</em> and Timelines<a class="headerlink" href="#lp-and-timelines" title="Permalink to this headline">¶</a></h2>
+<p>One of the goals of this project is to provide a tool that can be used to help
+new software developers learn the habits they will need when they start work on
+real projects. That means teaching students not just how to put together
+correct syntax that can get through the compiler, but also how to use the tools
+of the trade effectively to manage their work. They need to learn about
+programming editors, documentation tools, code processing tools, and testing
+tools. Oh, and <a class="reference external" href="https://git-scm.com/">Git</a>! (At least until <a class="reference external" href="https://git-scm.com/">Git</a> falls from dominance!)</p>
+<p>How can PyLiT help with that?</p>
+<div class="section" id="editing">
+<h3>Editing<a class="headerlink" href="#editing" title="Permalink to this headline">¶</a></h3>
+<p>I show my students how to use Vim on their machines. Not to start a flame war,
+but Vim is a good choice for beginners, since it can be found almost
+everywhere, and can easily be installed on machines that do not provide it
+natively (Windoze!). These notes will show Vim, but PyLiT is not tied to that
+editor.</p>
+<p>PyLiT assumes that the user is comfortable with some editor that can produce
+simple code files. That editor can be customized as the user wishes. As long as
+the final product is a simple text file (well, maybe encoded into Unicode)
+PyLiT can process the resulting file.</p>
+<p>All input files will be written in standard reStructuredText using extensions provided
+through <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a>. The user should be able to get <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a> running, and be able to
+add the <code class="xref py py-mod docutils literal notranslate"><span class="pre">sphinxcontrib-pylit</span></code> extension.</p>
+<p>When PyLiT process any input file, it creates a hash for that file and
+records it in the data store. If the file has previously been submitted and has
+not been modified, no processing will occur. If it has been modified, or is
+new, PyLiT will break that file into basic blocks and store those in the data
+store. PyLiT manages those blocks, not the original files that provided them.
+Users can copy and paste sections of text between input files with no
+restrictions. PyLiT will see that when it hashes the blocks, and eliminate
+excessive processing as it produces its final output products.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>No input file will be harmed by submitting it to PyLiT!</p>
+</div>
+</div>
+<div class="section" id="managing-the-timeline">
+<h3>Managing the Timeline<a class="headerlink" href="#managing-the-timeline" title="Permalink to this headline">¶</a></h3>
+<p><em>Literate Programming</em> seems to assume that the product being documented is the final version of
+some piece of software. That may have been Knuth’s intent, but the goal of
+PyLiT is to document the software and the process that led to that final
+version. Of course,, to paraphrase da Vinci, “Software is never really
+finished, only abandoned!” <a class="bibtex reference internal" href="../../zbibliography.html#davinci-2020" id="id2">[dV0)]</a></p>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../testing/tdd-sphinx-extensions.html" title="Test Driven Development of Sphinx Extensions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../project-setup.html" title="Project Setup"
+             >previous</a> |</li>
+        <li><a href="../../index.html">PyLiT home</a>&#160;|</li>
+        <li><a href="../../contents.html">Documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="../index.html" >Development Reference</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Development Workflows</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Roie R. Black and the Sphinx team.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.0.3.
+    </div>
+  </body>
+</html>

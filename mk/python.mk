@@ -7,7 +7,8 @@ pyinit:	## Create Python virtual environment
 	test -d _venv || \
 	python3 -m venv _venv && \
 	source _venv/bin/activate && \
-	pip install --upgrade pip
+	pip install --upgrade pip && \
+	pip install -e .
 
 .PHONY: pyreqs
 pyreqs: requirements.txt 	## Load Python requirements

@@ -25,5 +25,6 @@ class PylitDomain(Domain):
         'blocks': [],   # list of LP blocks
     }
 
+
 def setup(app: Sphinx) -> Dict[str, Any]:
     app.add_domain(PylitDomain)

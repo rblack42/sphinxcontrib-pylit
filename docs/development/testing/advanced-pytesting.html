@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Advanced PyTesting &#8212; PyLiT 0.0.2 documentation</title>
+    <link rel="stylesheet" href="../../_static/sphinx13.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Basic Pylit Blocks" href="../pylit/pylit-directives.html" />
+    <link rel="prev" title="Configuring Testing" href="testing-setup.html" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700'
+          rel='stylesheet' type='text/css' />
+ 
+    <style type="text/css">
+      table.right { float: right; margin-left: 20px; }
+      table.right td { border: 1px solid #ccc; }
+      
+    </style>
+    <script>
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+  </head><body>
+<div class="pageheader">
+  <ul>
+    <li><a href="../../index.html">Home</a></li>
+    <li><a href="../../usage/installation.html">Get it</a></li>
+    <li><a href="../../contents.html">Docs</a></li>
+    <li><a href="../../develop.html">Extend/Develop</a></li>
+  </ul>
+  <div>
+    <a href="../../index.html">
+      <img src="../../_static/logo.png" alt="PyLiT" />
+    </a>
+  </div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../pylit/pylit-directives.html" title="Basic Pylit Blocks"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="testing-setup.html" title="Configuring Testing"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">PyLiT home</a>&#160;|</li>
+        <li><a href="../../contents.html">Documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Development Reference</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Advanced PyTesting</a></li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../contents.html">
+              <img class="logo" src="../../_static/pylit.svg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Advanced PyTesting</a><ul>
+<li><a class="reference internal" href="#pytest-fixtures">PyTest Fixtures</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="testing-setup.html"
+                        title="previous chapter">Configuring Testing</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../pylit/pylit-directives.html"
+                        title="next chapter">Basic Pylit Blocks</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/development/testing/advanced-pytesting.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p>Read time: 2.3 minutes (233 words)</p>
+<div class="section" id="advanced-pytesting">
+<h1>Advanced PyTesting<a class="headerlink" href="#advanced-pytesting" title="Permalink to this headline">¶</a></h1>
+<p>Since the PyLiT application will integrate with <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a> we need to figure out
+how <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a> works internally. This can be done by cloning the application from
+<a class="reference external" href="https://github.com/">Github</a>. There is a bit of documentation there that will help, but it is mostly
+“what” documentation that helps you explore the code. Sadly, when you want to
+know details you run smack into “just read the code”, which means the “why”
+documentation is missing. This is silly for a tool that supports documentation
+(IMHO)!</p>
+<p>There is something useful in the source code, though.  <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a> has a nice set
+of unit tests, and those tests use a feature of PyTest that can help us write
+better code.</p>
+<div class="section" id="pytest-fixtures">
+<h2><a class="reference external" href="https://docs.pytest.org/en/latest/">PyTest</a> Fixtures<a class="headerlink" href="#pytest-fixtures" title="Permalink to this headline">¶</a></h2>
+<p>A <em>Fixture</em> is a function that will be called before a test is run by <a class="reference external" href="https://docs.pytest.org/en/latest/">PyTest</a>.
+We can use this feature to set up data to be used in the test.</p>
+<p>Creating a Fixture:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">tests/test_inc.py</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
+<span class="kn">from</span> <span class="nn">sphinxcontrib.pylit</span> <span class="kn">import</span> <span class="n">utils</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<span class="k">def</span> <span class="nf">test_inc</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">utils</span><span class="o">.</span><span class="n">inc</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">test_inc_result</span><span class="p">(</span><span class="n">test_inc</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">test_inc</span> <span class="o">==</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<p>While this may not seem like much of an addition to testing, it gets more
+powerful when you use parameterized fixtures.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">tests/test_inc.py</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
+<span class="kn">from</span> <span class="nn">sphinxcontrib.pylit</span> <span class="kn">import</span> <span class="n">utils</span>
+
+<span class="n">inc_set</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;4:5&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;5:6&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s1">&#39;inc_set&#39;</span><span class="p">,</span> <span class="n">inc_set</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_inc</span><span class="p">(</span><span class="n">inc_set</span><span class="p">):</span>
+    <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="n">inc_set</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">utils</span><span class="o">.</span><span class="n">inc</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<p>Here, we set up a list if test values and expected results. In this example,
+the list is just strings, but more complex Python structures can be set up.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">tests/test_inc.py</span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
+<span class="kn">from</span> <span class="nn">sphinxcontrib.pylit</span> <span class="kn">import</span> <span class="n">utils</span>
+
+<span class="n">inc_set</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span>
+<span class="p">]</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s1">&#39;inc_set&#39;</span><span class="p">,</span> <span class="n">inc_set</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_inc</span><span class="p">(</span><span class="n">inc_set</span><span class="p">):</span>
+    <span class="n">v1</span> <span class="o">=</span> <span class="n">inc_set</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">v2</span> <span class="o">=</span> <span class="n">inc_set</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">utils</span><span class="o">.</span><span class="n">inc</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span> <span class="o">==</span> <span class="n">v2</span>
+
+</pre></div>
+</div>
+</div>
+<p>Here the parameter list is a list of integers. The first value will be tested,
+and the second value is the expected result.</p>
+<p>We can also parameterize the fixture:</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">tests/test_inc.py</span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
+<span class="kn">from</span> <span class="nn">sphinxcontrib.pylit</span> <span class="kn">import</span> <span class="n">utils</span>
+
+<span class="n">test_data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span>
+<span class="p">]</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">params</span> <span class="o">=</span> <span class="n">test_data</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">gen_data</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">request</span><span class="o">.</span><span class="n">param</span>
+
+<span class="k">def</span> <span class="nf">test_inc</span><span class="p">(</span><span class="n">gen_data</span><span class="p">):</span>
+    <span class="n">v1</span> <span class="o">=</span> <span class="n">gen_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">v2</span> <span class="o">=</span> <span class="n">gen_data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">utils</span><span class="o">.</span><span class="n">inc</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span> <span class="o">==</span> <span class="n">v2</span>
+
+</pre></div>
+</div>
+</div>
+<p>There is much more to learn about using fixtures and marks in <a class="reference external" href="https://docs.pytest.org/en/latest/">PyTest</a>, but this
+will get us started.</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../pylit/pylit-directives.html" title="Basic Pylit Blocks"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="testing-setup.html" title="Configuring Testing"
+             >previous</a> |</li>
+        <li><a href="../../index.html">PyLiT home</a>&#160;|</li>
+        <li><a href="../../contents.html">Documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="../index.html" >Development Reference</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Advanced PyTesting</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Roie R. Black and the Sphinx team.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.0.3.
+    </div>
+  </body>
+</html>
