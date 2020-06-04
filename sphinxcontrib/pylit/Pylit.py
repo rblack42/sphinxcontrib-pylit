@@ -14,7 +14,10 @@ class PylitDomain(Domain):
 
     directives = {
         'code': PylitCodeBlock,
-        'index': PylitIndex,
+    }
+
+    indices = {
+        PylitIndex,
     }
 
     roles = {
@@ -22,7 +25,7 @@ class PylitDomain(Domain):
     }
 
     initial_data = {
-        'blocks': [],   # list of LP blocks
+        'objects': [],   # list of LP blocks
     }
 
 

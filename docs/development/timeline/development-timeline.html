@@ -151,7 +151,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <p>Read time: 12.5 minutes (1248 words)</p>
+  <p>Read time: 15.6 minutes (1563 words)</p>
 <div class="section" id="development-workflows">
 <h1>Development Workflows<a class="headerlink" href="#development-workflows" title="Permalink to this headline">¶</a></h1>
 <p>Real-World projects are not managed by one developer, except in those cases
@@ -179,7 +179,7 @@ will be used by <a class="reference external" href="https://git-scm.com/">Git</a
 </div>
 <div class="section" id="timelines">
 <h2>Timelines<a class="headerlink" href="#timelines" title="Permalink to this headline">¶</a></h2>
-<p>Development happens over time. A developer sits down at a workstation and
+<p>Development happens over time. Our lone developer sits down at a workstation and
 creates something related to the project. That something may be source code, or
 it may be documentation. At the end of that session, the changes to the code
 must be recorded. This is easy with <a class="reference external" href="https://git-scm.com/">Git</a>.</p>
@@ -190,7 +190,7 @@ must be recorded. This is easy with <a class="reference external" href="https://
 </pre></div>
 </div>
 <p>What will be displayed is a list of all files changed by the work session. That
-will include new files created, files deleted, and files modified</p>
+list will include new files created, files deleted, and files modified</p>
 </div>
 <div class="section" id="staging-changes">
 <h3>Staging Changes<a class="headerlink" href="#staging-changes" title="Permalink to this headline">¶</a></h3>
@@ -217,20 +217,35 @@ deleted files from its bookkeeping records. When the smoke clears, <a class="ref
 know what makes up the new, current, version of the code base. It will mark the
 new version using a hash tag, and record the current time and who made this
 commit.</p>
-<p>All of this happens at some moment in time, and the commit marks that moment.
-If we are unhappy with this new version, we could “back-up” to a previous point
+<p>If we are unhappy with this new version, we could “back-up” to a previous point
 in time, to a previous commit, and restore our working copy to the state it was
 in back then. This is a powerful tool for fixing silly work that never should
 have been there in the first place.</p>
 </div>
 <div class="section" id="pushing-changes">
 <h3>Pushing Changes<a class="headerlink" href="#pushing-changes" title="Permalink to this headline">¶</a></h3>
-<p>There is a final step, that is really optional at this point.</p>
+<p>There is a final step, that is really optional for a lone developer, or a
+developer working offline.</p>
 <p>If the developer has a “master copy” of the code base, living on a server like
-<a class="reference external" href="https://github.com/">Github</a>, the new version created by a commit should be “pushed” to that
-server.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git push origin master
+<a class="reference external" href="https://github.com/">Github</a>, the new version created by a commit should be “pushed” to that server.
+The connection between the developers local working copy of the project code
+and the server’s “master copy” is managed by this command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git remote add origin https://github.com/rblack42/sphnxcontrib-pylit
 </pre></div>
+</div>
+<p>This command notifies the local version of <a class="reference external" href="https://git-scm.com/">Git</a> that the master copy is stored
+on the <a class="reference external" href="https://github.com/">Github</a> server under the user and project identified above. (You must
+have write permissions to do this, and the repository must exist on the server
+before we can send anything to that server.</p>
+<p>Now, we can “push” changes to the server:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git push -u origin master
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>We only prodive the <strong>-u</strong> option on the first push to the server. This
+notifies the server to track changes we make to our code. Leave that option
+off on all other “push” operations.</p>
 </div>
 <p>This command is confusing to beginners. The “origin” is an alias for the remote
 server, <a class="reference external" href="https://github.com/">Github</a> in this case. The “master” refers to the developer’s working
@@ -325,8 +340,32 @@ excessive processing as it produces its final output products.</p>
 <p><em>Literate Programming</em> seems to assume that the product being documented is the final version of
 some piece of software. That may have been Knuth’s intent, but the goal of
 PyLiT is to document the software and the process that led to that final
-version. Of course,, to paraphrase da Vinci, “Software is never really
+version. Of course, to paraphrase da Vinci, “Software is never really
 finished, only abandoned!” <a class="bibtex reference internal" href="../../zbibliography.html#davinci-2020" id="id2">[dV0)]</a></p>
+<p>PyLiT must provide a way to create a timeline in addition to software. This
+will seem odd to developers who use <a class="reference external" href="https://git-scm.com/">Git</a> daily, but it is essential in a
+teaching environment. As a teacher, I start off writing small snippets of code,
+then add features to that code as we discuss various aspects of programming and
+development. Some of these versions are destined to be thrown away, but are
+needed when I generate the documentation for a website of a PDf file. <a class="reference external" href="https://git-scm.com/">Git</a>
+could do that directly, but I use <a class="reference external" href="https://git-scm.com/">Git</a> to manage my lecture notes and switching
+to previous commits in the middle of a <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a> run is not practical!</p>
+<p>Therefore PyLiT will create its own repository and use that as needed to
+generate lecture notes. We will need to enhance <em>Literate Programming</em> to provide this
+capability.</p>
+<p>Since we are not interested in supporting everything <a class="reference external" href="https://git-scm.com/">Git</a> has to offer, we will
+focus on the primary tools needed:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>add - save changes in a staging area</p></li>
+<li><p>commit - create a commit record for a particular version</p></li>
+<li><p>checkout - return to a previous commit</p></li>
+<li><p>tag - mark a commit with a human readable name.</p></li>
+</ul>
+</div></blockquote>
+<p>Each of these commands will become directives in the PyLiT domain we will
+build for <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a>. The commands will not work exactly like the real <a class="reference external" href="https://git-scm.com/">Git</a>
+commands, but what they do should be familiar.</p>
 </div>
 </div>
 </div>

@@ -105,7 +105,7 @@
 <li><a class="reference internal" href="#module-sphinxcontrib.pylit.PylitCodeBlock">sphinxcontrib.pylit.PylitCodeBlock module</a></li>
 <li><a class="reference internal" href="#module-sphinxcontrib.pylit.PylitFile">sphinxcontrib.pylit.PylitFile module</a></li>
 <li><a class="reference internal" href="#module-sphinxcontrib.pylit.PylitIndex">sphinxcontrib.pylit.PylitIndex module</a></li>
-<li><a class="reference internal" href="#module-sphinxcontrib.pylit.cli">sphinxcontrib.pylit.cli module</a></li>
+<li><a class="reference internal" href="#sphinxcontrib-pylit-cli-module">sphinxcontrib.pylit.cli module</a></li>
 <li><a class="reference internal" href="#module-sphinxcontrib.pylit.meta">sphinxcontrib.pylit.meta module</a></li>
 <li><a class="reference internal" href="#module-sphinxcontrib.pylit.utils">sphinxcontrib.pylit.utils module</a></li>
 <li><a class="reference internal" href="#module-sphinxcontrib.pylit">Module contents</a></li>
@@ -144,7 +144,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <p>Read time: 0.2 minutes (19 words)</p>
+  <p>Read time: 1.5 minutes (154 words)</p>
 <div class="section" id="sphinxcontrib-pylit-package">
 <h1>sphinxcontrib.pylit package<a class="headerlink" href="#sphinxcontrib-pylit-package" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="submodules">
@@ -177,12 +177,17 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sphinx.domains.Domain</span></code></p>
 <dl class="py attribute">
 <dt id="sphinxcontrib.pylit.Pylit.PylitDomain.directives">
-<code class="sig-name descname">directives</code><em class="property"> = {'code': &lt;class 'sphinxcontrib.pylit.PylitCodeBlock.PylitCodeBlock'&gt;, 'index': &lt;class 'sphinxcontrib.pylit.PylitIndex.PylitIndex'&gt;}</em><a class="headerlink" href="#sphinxcontrib.pylit.Pylit.PylitDomain.directives" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">directives</code><em class="property"> = {'code': &lt;class 'sphinxcontrib.pylit.PylitCodeBlock.PylitCodeBlock'&gt;}</em><a class="headerlink" href="#sphinxcontrib.pylit.Pylit.PylitDomain.directives" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sphinxcontrib.pylit.Pylit.PylitDomain.indices">
+<code class="sig-name descname">indices</code><em class="property"> = {&lt;class 'sphinxcontrib.pylit.PylitIndex.PylitIndex'&gt;}</em><a class="headerlink" href="#sphinxcontrib.pylit.Pylit.PylitDomain.indices" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="sphinxcontrib.pylit.Pylit.PylitDomain.initial_data">
-<code class="sig-name descname">initial_data</code><em class="property"> = {'blocks': []}</em><a class="headerlink" href="#sphinxcontrib.pylit.Pylit.PylitDomain.initial_data" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">initial_data</code><em class="property"> = {'objects': []}</em><a class="headerlink" href="#sphinxcontrib.pylit.Pylit.PylitDomain.initial_data" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -240,30 +245,74 @@
 <span id="sphinxcontrib-pylit-pylitindex-module"></span><h2>sphinxcontrib.pylit.PylitIndex module<a class="headerlink" href="#module-sphinxcontrib.pylit.PylitIndex" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="sphinxcontrib.pylit.PylitIndex.PylitIndex">
-<em class="property">class </em><code class="sig-prename descclassname">sphinxcontrib.pylit.PylitIndex.</code><code class="sig-name descname">PylitIndex</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">arguments</span></em>, <em class="sig-param"><span class="n">options</span></em>, <em class="sig-param"><span class="n">content</span></em>, <em class="sig-param"><span class="n">lineno</span></em>, <em class="sig-param"><span class="n">content_offset</span></em>, <em class="sig-param"><span class="n">block_text</span></em>, <em class="sig-param"><span class="n">state</span></em>, <em class="sig-param"><span class="n">state_machine</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sphinxcontrib/pylit/PylitIndex.html#PylitIndex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinxcontrib.pylit.PylitIndex.PylitIndex" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sphinx.directives.code.CodeBlock</span></code></p>
+<em class="property">class </em><code class="sig-prename descclassname">sphinxcontrib.pylit.PylitIndex.</code><code class="sig-name descname">PylitIndex</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sphinxcontrib/pylit/PylitIndex.html#PylitIndex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinxcontrib.pylit.PylitIndex.PylitIndex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sphinx.domains.Index</span></code></p>
+<dl class="py method">
+<dt id="sphinxcontrib.pylit.PylitIndex.PylitIndex.generate">
+<code class="sig-name descname">generate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">docnames</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sphinxcontrib/pylit/PylitIndex.html#PylitIndex.generate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinxcontrib.pylit.PylitIndex.PylitIndex.generate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get entries for the index.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">docnames</span></code> is given, restrict to entries referring to these
+docnames.</p>
+<p>The return value is a tuple of <code class="docutils literal notranslate"><span class="pre">(content,</span> <span class="pre">collapse)</span></code>:</p>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">collapse</span></code></dt><dd><p>A boolean that determines if sub-entries should start collapsed (for
+output formats that support collapsing sub-entries).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">content</span></code>:</dt><dd><p>A sequence of <code class="docutils literal notranslate"><span class="pre">(letter,</span> <span class="pre">entries)</span></code> tuples, where <code class="docutils literal notranslate"><span class="pre">letter</span></code> is the
+“heading” for the given <code class="docutils literal notranslate"><span class="pre">entries</span></code>, usually the starting letter, and
+<code class="docutils literal notranslate"><span class="pre">entries</span></code> is a sequence of single entries. Each entry is a sequence
+<code class="docutils literal notranslate"><span class="pre">[name,</span> <span class="pre">subtype,</span> <span class="pre">docname,</span> <span class="pre">anchor,</span> <span class="pre">extra,</span> <span class="pre">qualifier,</span> <span class="pre">descr]</span></code>. The
+items in this sequence have the following meaning:</p>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">name</span></code></dt><dd><p>The name of the index entry to be displayed.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">subtype</span></code></dt><dd><p>The sub-entry related type. One of:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">0</span></code></dt><dd><p>A normal entry.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">1</span></code></dt><dd><p>An entry with sub-entries.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">2</span></code></dt><dd><p>A sub-entry.</p>
+</dd>
+</dl>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">docname</span></code></dt><dd><p><em>docname</em> where the entry is located.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">anchor</span></code></dt><dd><p>Anchor for the entry within <code class="docutils literal notranslate"><span class="pre">docname</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">extra</span></code></dt><dd><p>Extra info for the entry.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">qualifier</span></code></dt><dd><p>Qualifier for the description.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">descr</span></code></dt><dd><p>Description for the entry.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Qualifier and description are not rendered for some output formats such
+as LaTeX.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sphinxcontrib.pylit.PylitIndex.PylitIndex.localname">
+<code class="sig-name descname">localname</code><em class="property"> = 'PyLiT Index'</em><a class="headerlink" href="#sphinxcontrib.pylit.PylitIndex.PylitIndex.localname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sphinxcontrib.pylit.PylitIndex.PylitIndex.name">
+<code class="sig-name descname">name</code><em class="property"> = 'pylit'</em><a class="headerlink" href="#sphinxcontrib.pylit.PylitIndex.PylitIndex.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="sphinxcontrib.pylit.PylitIndex.PylitIndex.shortname">
+<code class="sig-name descname">shortname</code><em class="property"> = 'LPblocks'</em><a class="headerlink" href="#sphinxcontrib.pylit.PylitIndex.PylitIndex.shortname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </div>
-<div class="section" id="module-sphinxcontrib.pylit.cli">
-<span id="sphinxcontrib-pylit-cli-module"></span><h2>sphinxcontrib.pylit.cli module<a class="headerlink" href="#module-sphinxcontrib.pylit.cli" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="sphinxcontrib.pylit.cli.ExampleClass">
-<em class="property">class </em><code class="sig-prename descclassname">sphinxcontrib.pylit.cli.</code><code class="sig-name descname">ExampleClass</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sphinxcontrib/pylit/cli.html#ExampleClass"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinxcontrib.pylit.cli.ExampleClass" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>An example docstring for a class definition.</p>
-<dl class="py method">
-<dt id="sphinxcontrib.pylit.cli.ExampleClass.about_self">
-<code class="sig-name descname">about_self</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sphinxcontrib/pylit/cli.html#ExampleClass.about_self"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinxcontrib.pylit.cli.ExampleClass.about_self" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py function">
-<dt id="sphinxcontrib.pylit.cli.about_me">
-<code class="sig-prename descclassname">sphinxcontrib.pylit.cli.</code><code class="sig-name descname">about_me</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">your_name</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sphinxcontrib/pylit/cli.html#about_me"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sphinxcontrib.pylit.cli.about_me" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+<div class="section" id="sphinxcontrib-pylit-cli-module">
+<h2>sphinxcontrib.pylit.cli module<a class="headerlink" href="#sphinxcontrib-pylit-cli-module" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-sphinxcontrib.pylit.meta">
 <span id="sphinxcontrib-pylit-meta-module"></span><h2>sphinxcontrib.pylit.meta module<a class="headerlink" href="#module-sphinxcontrib.pylit.meta" title="Permalink to this headline">¶</a></h2>
